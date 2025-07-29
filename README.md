@@ -9,6 +9,9 @@ This project aims to estimate a person's age from ultra-wide field (UWF) fundus 
 
 The project is structured into several key stages:
 
+### 0 Create a premodel with MobileVit
+-Train a DL model of MibileVit on the none processed image to have a compare for the YOLO model.
+
 ### 1. Dataset Preparation
 
 - Download a UWF fundus image dataset.
