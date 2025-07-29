@@ -28,4 +28,4 @@ The project is structured into several key stages:
 - Use **5-fold cross-validation** to evaluate generalization.
 - Target: Predict chronological age as a regression task.
 
-
+📁 [Télécharger le dataset sur figshare](https://springernature.figshare.com/articles/dataset/Open_ultrawidefield_fundus_image_dataset_with_disease_diagnosis_and_clinical_image_quality_assessment/26936446?file=49014559)
