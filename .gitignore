@@ -11,3 +11,5 @@ __pycache__/
 
 # Ignore les notebooks Jupyter checkpoints
 .ipynb_checkpoints/
+
+*.jpg
