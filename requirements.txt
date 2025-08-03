@@ -1,0 +1,21 @@
+# Core libraries
+torch>=1.12
+torchvision>=0.13
+torchaudio>=0.12
+
+# Image processing
+opencv-python
+Pillow
+
+# Transformers / ViT
+timm  
+
+# Utils
+numpy
+matplotlib
+scikit-learn
+pandas
+
+# Logging / config
+tqdm
+pyyaml

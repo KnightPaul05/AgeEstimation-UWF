@@ -1,0 +1,13 @@
+# Ignore le dossier contenant les images
+data/
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Ignore les fichiers temporaires ou de cache
+__pycache__/
+*.pyc
+
+# Ignore les notebooks Jupyter checkpoints
+.ipynb_checkpoints/
