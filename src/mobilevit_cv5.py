@@ -10,6 +10,9 @@ Author: you (+ ChatGPT as thesis supervisor)
 Attribution: MobileViT models & weights via TIMM (pytorch-image-models)
 """
 
+from torch.utils.tensorboard import SummaryWriter
+import csv, json
+
 import argparse, os, math, time
 from pathlib import Path
 import numpy as np
@@ -120,6 +123,35 @@ def build_scheduler(optimizer, kind, epochs, warmup_epochs=0):
     elif kind == 'plateau':
         return optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3, verbose=True)
     return None
+def _csv_append_row(csv_path, row_dict, field_order):
+    write_header = not os.path.exists(csv_path)
+    with open(csv_path, 'a', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=field_order)
+        if write_header:
+            w.writeheader()
+        w.writerow(row_dict)
+
+@torch.no_grad()
+def tb_log_images(writer, tag_prefix, loader, device, max_images=8):
+    # log un petit batch (images + targets + preds)
+    try:
+        images, targets = next(iter(loader))
+    except StopIteration:
+        return
+    images = images[:max_images].to(device)
+    targets = targets[:max_images].to(device)
+    preds = writer._pred_model(images) if hasattr(writer, "_pred_model") else None  # facultatif si tu stockes le modèle
+    # on log seulement les images (normalisées -> dénormalisation simple pour affichage)
+    mean = torch.tensor([0.485, 0.456, 0.406], device=images.device).view(1,3,1,1)
+    std  = torch.tensor([0.229, 0.224, 0.225], device=images.device).view(1,3,1,1)
+    imgs_vis = (images * std + mean).clamp(0,1).cpu()
+    grid = torch.nn.functional.pad(imgs_vis, (2,2,2,2))  # petite bordure
+    writer.add_images(f"{tag_prefix}/images", grid, global_step=writer._global_step)
+    # Tu peux aussi logguer les cibles/prédictions en histogrammes si tu veux
+    if preds is not None:
+        writer.add_histogram(f"{tag_prefix}/preds", preds.detach().cpu(), global_step=writer._global_step)
+    writer.add_histogram(f"{tag_prefix}/targets", targets.detach().cpu(), global_step=writer._global_step)
+
 
 def train_one_epoch(model, loader, criterion, optimizer, scaler, device, max_grad_norm=None):
     model.train()
@@ -186,10 +218,26 @@ def parse_args():
     p.add_argument('--patience', type=int, default=12)
     p.add_argument('--folds', type=int, default=5)
     p.add_argument('--amp', action='store_true')
+    # LOGGING
+    p.add_argument('--log-tb', action='store_true', help='Enable TensorBoard logging')
+    p.add_argument('--log-csv', action='store_true', help='Write per-epoch metrics to CSV')
+    p.add_argument('--log-images-every', type=int, default=0, help='If >0, log a small image batch to TB every N epochs')
+    p.add_argument('--out-dir',dest = 'out', type=str, default='runs/cv5_xs320_light',
+               help='Output directory for folds/checkpoints/logs')
     return p.parse_args()
 
 def main():
+    
     args = parse_args()
+    args = parse_args()
+    set_seed(args.seed)
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print("Using device:", device)
+
+# Create output directory and confirm path
+    out_root = Path(args.out)
+    out_root.mkdir(parents=True, exist_ok=True)
+    print(f"Writing artifacts to: {out_root.resolve()}")
     set_seed(args.seed)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print("Using device:", device)
@@ -208,7 +256,7 @@ def main():
         groups = df[args.subject_col].astype(str).values
         splitter = GroupKFold(n_splits=args.folds)
         index_iter = splitter.split(df, groups=groups)
-        print(f"Using GroupKFold on '{args.subject-col}'")
+        print(f"Using GroupKFold on '{args.subject_col}'") 
     else:
         splitter = KFold(n_splits=args.folds, shuffle=True, random_state=args.seed)
         index_iter = splitter.split(df)
@@ -223,7 +271,7 @@ def main():
 
     out_root = Path(args.out); out_root.mkdir(parents=True, exist_ok=True)
     summary = []
-
+    
     for fold, (train_idx, val_idx) in enumerate(index_iter, start=1):
         print(f"\n===== Fold {fold}/{args.folds} =====")
         train_tfms, val_tfms = get_transforms(args.img_size, strong=args.aug_strong)
@@ -249,6 +297,9 @@ def main():
             criterion = nn.SmoothL1Loss(beta=1.0)
             optimizer = build_optimizer(model, args.lr, args.weight_decay)
             scheduler = build_scheduler(optimizer, args.scheduler, args.epochs, args.warmup_epochs)
+
+
+
             scaler = torch.cuda.amp.GradScaler(enabled=(args.amp and device.type=='cuda'))
 
             no_improve = 0; best_mae = float('inf'); best_ckpt = fold_dir / 'best_mae.pt'
