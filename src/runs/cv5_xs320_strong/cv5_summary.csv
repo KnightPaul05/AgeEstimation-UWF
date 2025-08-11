@@ -1,0 +1,16 @@
+fold,dropout,best_val_mae,ckpt
+1,0.1,35.964107513427734,runs\cv5_xs320_strong\fold1_drop0p1\best_mae.pt
+1,0.2,39.6575927734375,runs\cv5_xs320_strong\fold1_drop0p2\best_mae.pt
+1,0.3,40.40217971801758,runs\cv5_xs320_strong\fold1_drop0p3\best_mae.pt
+2,0.3,30.870254516601562,runs\cv5_xs320_strong\fold2_drop0p3\best_mae.pt
+2,0.1,31.4869327545166,runs\cv5_xs320_strong\fold2_drop0p1\best_mae.pt
+2,0.2,32.3962516784668,runs\cv5_xs320_strong\fold2_drop0p2\best_mae.pt
+3,0.3,31.561660766601562,runs\cv5_xs320_strong\fold3_drop0p3\best_mae.pt
+3,0.1,32.316707611083984,runs\cv5_xs320_strong\fold3_drop0p1\best_mae.pt
+3,0.2,35.37569046020508,runs\cv5_xs320_strong\fold3_drop0p2\best_mae.pt
+4,0.1,32.8470573425293,runs\cv5_xs320_strong\fold4_drop0p1\best_mae.pt
+4,0.3,32.85572052001953,runs\cv5_xs320_strong\fold4_drop0p3\best_mae.pt
+4,0.2,36.69965744018555,runs\cv5_xs320_strong\fold4_drop0p2\best_mae.pt
+5,0.3,29.222497940063477,runs\cv5_xs320_strong\fold5_drop0p3\best_mae.pt
+5,0.1,31.202926635742188,runs\cv5_xs320_strong\fold5_drop0p1\best_mae.pt
+5,0.2,32.28053665161133,runs\cv5_xs320_strong\fold5_drop0p2\best_mae.pt
