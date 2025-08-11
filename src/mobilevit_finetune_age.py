@@ -92,6 +92,21 @@ class FundusAgeDataset(Dataset):
         age_tensor = torch.tensor(age, dtype=torch.float32).unsqueeze(0)  # shape: [1]
         return image, age_tensor
 
+class SubsetWithTransform(Dataset):
+    def __init__(self, base, indices, transform):
+        self.base = base
+        self.indices = list(indices)
+        self.transform = transform
+    def __len__(self):
+        return len(self.indices)
+    def __getitem__(self, i):
+        row = self.base.data.iloc[self.indices[i]]
+        img_path = os.path.join(self.base.img_dir, str(row['Filename']))
+        image = Image.open(img_path).convert('RGB')
+        if self.transform:
+            image = self.transform(image)
+        age = float(row['Age'])
+        return image, torch.tensor(age, dtype=torch.float32).unsqueeze(0)
 
 # ---------------------------
 # Utilities
@@ -129,24 +144,14 @@ def set_seed(seed=42):
 # ---------------------------
 
 def build_model(model_name: str = 'mobilevit_s', pretrained: bool = True, dropout: float = 0.0):
-    """Create a MobileViT model for REGRESSION (1 output neuron).
-
-    ### 🔧 You can change `model_name` to: 'mobilevit_xxs', 'mobilevit_xs', 'mobilevit_s'
-    Larger models may improve accuracy but need more VRAM/compute.
-    """
-    # timm will set the final layer to output 1 unit if we pass num_classes=1
-    model = timm.create_model(model_name, pretrained=pretrained, num_classes=1)
-
-    # Optional: add dropout before the head if the architecture supports it
-    # Many timm models expose a classifier/last layer attribute. For MobileViT it's `head`.
-    if dropout > 0:
-        if hasattr(model, 'head') and isinstance(model.head, nn.Linear):
-            in_features = model.head.in_features
-            model.head = nn.Sequential(
-                nn.Dropout(p=dropout),
-                nn.Linear(in_features, 1)
-            )
-        # else: keep as is
+    # TIMM gère le dropout via drop_rate (et éventuellement drop_path_rate si tu veux du stochastic depth)
+    model = timm.create_model(
+        model_name,
+        pretrained=pretrained,
+        num_classes=1,
+        drop_rate=dropout,          # <— voilà le dropout propre
+        # drop_path_rate=0.0,       # tu peux essayer 0.05–0.1 sur des modèles plus grands
+    )
     return model
 
 
@@ -319,29 +324,13 @@ def make_loaders(csv_path, img_dir, img_size, val_split, batch_size, num_workers
         idx = idx[:limit]  # limit to first N samples
     train_idx, val_idx = train_test_split(idx, test_size=val_split, random_state=42, shuffle=True)
 
-    # Wrap into Subset with independent transforms
-    class _Wrapper(Dataset):
-        def __init__(self, base, indices, transform):
-            self.base = base
-            self.indices = indices
-            self.transform = transform
-        def __len__(self):
-            return len(self.indices)
-        def __getitem__(self, i):
-            img, age = self.base[self.indices[i]]
-            if self.transform:
-                # Re-open image to ensure transform is applied to PIL (since base returns transformed=None)
-                row = full_ds.data.iloc[self.indices[i]]
-                path = os.path.join(full_ds.img_dir, str(row['Filename']))
-                image = Image.open(path).convert('RGB')
-                img = self.transform(image)
-            return img, age
+    train_ds = SubsetWithTransform(full_ds, train_idx, train_tfms)
+    val_ds = SubsetWithTransform(full_ds, val_idx,   val_tfms)
 
-    train_ds = _Wrapper(full_ds, train_idx, train_tfms)
-    val_ds = _Wrapper(full_ds, val_idx, val_tfms)
+    pin = (torch.cuda.is_available() and torch.cuda.device_count() > 0)
 
-    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=True)
-    val_loader = DataLoader(val_ds, batch_size=batch_size*2, shuffle=False, num_workers=num_workers, pin_memory=True)
+    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=pin)
+    val_loader = DataLoader(val_ds, batch_size=batch_size*2, shuffle=False, num_workers=num_workers, pin_memory=pin)
     return train_loader, val_loader
 
 
