@@ -1,0 +1,13 @@
+python mobilevit_finetune_age.py `
+  --csv "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --img-dir "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\images" `
+  --out "./runs/mvit_xs_320_lightaug_stronglearn" `
+  --model mobilevit_xs --img-size 320 `
+  --loss smoothl1 --huber-beta 1.0 `
+  --optimizer adamw --lr 2e-3 --weight-decay 0.01 `
+  --sched cosine --warmup-epochs 3 `
+  --epochs 120 --batch-size 32 `
+  --dropout 0.05 --drop-path 0.0 `
+  --aa rand-m2 --reprob 0.05 --mixup 0.0 --cutmix 0.0 `
+  --amp --grad-clip 1.0 `
+  --seed 42

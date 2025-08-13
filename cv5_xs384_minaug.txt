@@ -1,0 +1,14 @@
+python mobilevit_cv5.py `
+  --csv "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --img-dir "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\images" `
+  --out "./runs/cv5_xs384_minaug" `
+  --model mobilevit_xs --img-size 384 `
+  --dropout-grid "0.05,0.1,0.15" `
+  --epochs 120 --batch-size 24 `
+  --lr 2e-3 --weight-decay 0.01 `
+  --scheduler cosine --warmup-epochs 3 `
+  --max-grad-norm 1.0 `
+  --amp `
+  --seed 42 `
+  --patience 10 `
+  --num-workers 4

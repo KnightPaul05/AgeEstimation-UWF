@@ -17,7 +17,7 @@ scikit-learn
 pandas
 openpyxl
 tqdm
-
+matplotlib
 # Logging / config
 tqdm
 pyyaml
