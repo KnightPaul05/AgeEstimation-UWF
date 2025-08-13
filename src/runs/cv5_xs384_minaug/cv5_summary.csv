@@ -1,0 +1,6 @@
+fold,dropout,best_val_mae,ckpt
+1,0.1,11.610308647155762,runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt
+2,0.1,17.523767471313477,runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt
+3,0.1,11.786314010620117,runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt
+4,0.1,31.02126693725586,runs\cv5_xs384_minaug\fold4_drop0p1\best_mae.pt
+5,0.1,7.262049198150635,runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt
