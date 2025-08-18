@@ -12,3 +12,394 @@ python mobilevit_cv5.py `
   --seed 42 `
   --patience 10 `
   --num-workers 4
+
+
+
+  Using device: cpu
+Writing artifacts to: C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\src\runs\cv5_xs384_minaug
+Using device: cpu
+Using KFold (no subject grouping)
+
+===== Fold 1/5 =====
+
+-- Dropout=0.10 -> out: runs\cv5_xs384_minaug\fold1_drop0p1
+C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\src\mobilevit_cv5.py:303: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=(args.amp and device.type=='cuda'))
+C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\src\mobilevit_cv5.py:163: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=use_amp):
+[F1 D0.10] Epoch 001/120 | LR 1.333e-03 | Train Loss 34.6310 MAE 35.131 | Val Loss 44.1988 MAE 44.699 RMSE 46.819 | 49.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=44.699)
+[F1 D0.10] Epoch 002/120 | LR 2.000e-03 | Train Loss 34.4423 MAE 34.942 | Val Loss 43.0076 MAE 43.508 RMSE 45.701 | 45.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=43.508)
+[F1 D0.10] Epoch 003/120 | LR 2.000e-03 | Train Loss 34.0046 MAE 34.505 | Val Loss 41.3537 MAE 41.854 RMSE 44.273 | 36.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=41.854)
+[F1 D0.10] Epoch 004/120 | LR 2.000e-03 | Train Loss 33.3133 MAE 33.813 | Val Loss 39.7472 MAE 40.247 RMSE 42.675 | 34.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=40.247)
+[F1 D0.10] Epoch 005/120 | LR 1.999e-03 | Train Loss 32.5117 MAE 33.012 | Val Loss 39.1219 MAE 39.622 RMSE 42.023 | 37.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=39.622)
+[F1 D0.10] Epoch 006/120 | LR 1.997e-03 | Train Loss 31.7708 MAE 32.271 | Val Loss 38.4369 MAE 38.937 RMSE 41.346 | 33.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=38.937)
+[F1 D0.10] Epoch 007/120 | LR 1.994e-03 | Train Loss 31.1079 MAE 31.608 | Val Loss 37.5176 MAE 38.018 RMSE 40.482 | 36.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=38.018)
+[F1 D0.10] Epoch 008/120 | LR 1.991e-03 | Train Loss 30.2057 MAE 30.706 | Val Loss 36.4552 MAE 36.955 RMSE 39.494 | 33.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=36.955)
+[F1 D0.10] Epoch 009/120 | LR 1.987e-03 | Train Loss 29.4143 MAE 29.914 | Val Loss 35.5312 MAE 36.031 RMSE 38.627 | 38.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=36.031)
+[F1 D0.10] Epoch 010/120 | LR 1.982e-03 | Train Loss 28.6118 MAE 29.112 | Val Loss 34.8136 MAE 35.314 RMSE 38.003 | 37.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=35.314)
+[F1 D0.10] Epoch 011/120 | LR 1.977e-03 | Train Loss 27.9508 MAE 28.450 | Val Loss 34.9421 MAE 35.442 RMSE 38.552 | 37.6s
+[F1 D0.10] Epoch 012/120 | LR 1.971e-03 | Train Loss 27.1037 MAE 27.592 | Val Loss 33.1318 MAE 33.632 RMSE 36.410 | 34.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=33.632)
+[F1 D0.10] Epoch 013/120 | LR 1.964e-03 | Train Loss 26.2862 MAE 26.777 | Val Loss 32.6413 MAE 33.141 RMSE 35.943 | 34.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=33.141)
+[F1 D0.10] Epoch 014/120 | LR 1.957e-03 | Train Loss 25.5109 MAE 26.007 | Val Loss 31.5960 MAE 32.096 RMSE 34.979 | 35.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=32.096)
+[F1 D0.10] Epoch 015/120 | LR 1.949e-03 | Train Loss 24.8195 MAE 25.320 | Val Loss 31.1235 MAE 31.624 RMSE 34.872 | 33.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=31.624)
+[F1 D0.10] Epoch 016/120 | LR 1.940e-03 | Train Loss 23.9979 MAE 24.498 | Val Loss 29.6391 MAE 30.139 RMSE 33.206 | 34.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=30.139)
+[F1 D0.10] Epoch 017/120 | LR 1.930e-03 | Train Loss 23.2873 MAE 23.787 | Val Loss 28.9807 MAE 29.481 RMSE 32.600 | 33.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=29.481)
+[F1 D0.10] Epoch 018/120 | LR 1.920e-03 | Train Loss 22.5250 MAE 23.025 | Val Loss 28.6772 MAE 29.177 RMSE 32.317 | 33.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=29.177)
+[F1 D0.10] Epoch 019/120 | LR 1.909e-03 | Train Loss 21.9614 MAE 22.453 | Val Loss 27.5481 MAE 28.048 RMSE 31.314 | 33.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=28.048)
+[F1 D0.10] Epoch 020/120 | LR 1.898e-03 | Train Loss 21.0971 MAE 21.594 | Val Loss 26.2682 MAE 26.768 RMSE 30.215 | 33.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=26.768)
+[F1 D0.10] Epoch 021/120 | LR 1.885e-03 | Train Loss 20.5092 MAE 21.006 | Val Loss 25.1809 MAE 25.681 RMSE 29.215 | 33.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=25.681)
+[F1 D0.10] Epoch 022/120 | LR 1.873e-03 | Train Loss 19.6747 MAE 20.167 | Val Loss 24.7108 MAE 25.209 RMSE 28.812 | 36.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=25.209)
+[F1 D0.10] Epoch 023/120 | LR 1.859e-03 | Train Loss 19.1978 MAE 19.694 | Val Loss 24.2856 MAE 24.780 RMSE 28.514 | 33.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=24.780)
+[F1 D0.10] Epoch 024/120 | LR 1.845e-03 | Train Loss 18.4117 MAE 18.908 | Val Loss 23.4809 MAE 23.973 RMSE 27.854 | 34.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=23.973)
+[F1 D0.10] Epoch 025/120 | LR 1.831e-03 | Train Loss 18.8049 MAE 19.300 | Val Loss 23.4597 MAE 23.960 RMSE 28.401 | 33.8s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=23.960)
+[F1 D0.10] Epoch 026/120 | LR 1.815e-03 | Train Loss 18.2982 MAE 18.792 | Val Loss 22.3611 MAE 22.861 RMSE 26.610 | 34.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=22.861)
+[F1 D0.10] Epoch 027/120 | LR 1.799e-03 | Train Loss 17.0097 MAE 17.504 | Val Loss 21.3010 MAE 21.801 RMSE 25.637 | 35.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=21.801)
+[F1 D0.10] Epoch 028/120 | LR 1.783e-03 | Train Loss 16.7566 MAE 17.251 | Val Loss 20.9651 MAE 21.465 RMSE 25.309 | 32.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=21.465)
+[F1 D0.10] Epoch 029/120 | LR 1.766e-03 | Train Loss 16.1881 MAE 16.688 | Val Loss 26.9030 MAE 27.403 RMSE 32.553 | 32.1s
+[F1 D0.10] Epoch 030/120 | LR 1.749e-03 | Train Loss 16.1428 MAE 16.634 | Val Loss 24.0797 MAE 24.580 RMSE 30.417 | 33.2s
+[F1 D0.10] Epoch 031/120 | LR 1.730e-03 | Train Loss 15.2865 MAE 15.783 | Val Loss 22.1758 MAE 22.676 RMSE 28.269 | 33.3s
+[F1 D0.10] Epoch 032/120 | LR 1.712e-03 | Train Loss 15.2497 MAE 15.748 | Val Loss 19.3579 MAE 19.858 RMSE 24.144 | 31.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=19.858)
+[F1 D0.10] Epoch 033/120 | LR 1.693e-03 | Train Loss 14.3807 MAE 14.864 | Val Loss 19.4035 MAE 19.903 RMSE 24.001 | 35.0s
+[F1 D0.10] Epoch 034/120 | LR 1.673e-03 | Train Loss 14.2860 MAE 14.778 | Val Loss 20.0124 MAE 20.512 RMSE 24.908 | 31.7s
+[F1 D0.10] Epoch 035/120 | LR 1.653e-03 | Train Loss 14.0384 MAE 14.524 | Val Loss 19.8854 MAE 20.385 RMSE 24.667 | 33.3s
+[F1 D0.10] Epoch 036/120 | LR 1.632e-03 | Train Loss 13.4708 MAE 13.958 | Val Loss 19.0451 MAE 19.545 RMSE 23.581 | 32.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=19.545)
+[F1 D0.10] Epoch 037/120 | LR 1.611e-03 | Train Loss 13.0408 MAE 13.537 | Val Loss 21.0526 MAE 21.536 RMSE 26.111 | 33.0s
+[F1 D0.10] Epoch 038/120 | LR 1.590e-03 | Train Loss 13.5028 MAE 13.998 | Val Loss 22.3148 MAE 22.815 RMSE 27.907 | 31.5s
+[F1 D0.10] Epoch 039/120 | LR 1.568e-03 | Train Loss 13.2138 MAE 13.710 | Val Loss 17.6825 MAE 18.183 RMSE 22.175 | 31.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=18.183)
+[F1 D0.10] Epoch 040/120 | LR 1.546e-03 | Train Loss 13.1977 MAE 13.690 | Val Loss 16.2402 MAE 16.730 RMSE 20.995 | 32.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=16.730)
+[F1 D0.10] Epoch 041/120 | LR 1.523e-03 | Train Loss 12.8971 MAE 13.382 | Val Loss 18.5915 MAE 19.091 RMSE 22.837 | 32.0s
+[F1 D0.10] Epoch 042/120 | LR 1.500e-03 | Train Loss 12.6969 MAE 13.191 | Val Loss 16.8617 MAE 17.362 RMSE 21.351 | 31.9s
+[F1 D0.10] Epoch 043/120 | LR 1.477e-03 | Train Loss 12.1372 MAE 12.629 | Val Loss 15.5560 MAE 16.038 RMSE 20.452 | 31.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=16.038)
+[F1 D0.10] Epoch 044/120 | LR 1.453e-03 | Train Loss 12.3471 MAE 12.842 | Val Loss 15.8518 MAE 16.352 RMSE 20.430 | 38.3s
+[F1 D0.10] Epoch 045/120 | LR 1.429e-03 | Train Loss 11.7486 MAE 12.243 | Val Loss 15.6198 MAE 16.116 RMSE 20.285 | 34.6s
+[F1 D0.10] Epoch 046/120 | LR 1.404e-03 | Train Loss 12.1686 MAE 12.668 | Val Loss 15.4178 MAE 15.918 RMSE 20.736 | 32.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=15.918)
+[F1 D0.10] Epoch 047/120 | LR 1.380e-03 | Train Loss 12.0494 MAE 12.549 | Val Loss 15.0311 MAE 15.531 RMSE 20.673 | 33.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=15.531)
+[F1 D0.10] Epoch 048/120 | LR 1.355e-03 | Train Loss 10.9156 MAE 11.395 | Val Loss 13.7797 MAE 14.279 RMSE 19.066 | 33.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=14.279)
+[F1 D0.10] Epoch 049/120 | LR 1.329e-03 | Train Loss 10.5630 MAE 11.058 | Val Loss 13.0792 MAE 13.552 RMSE 18.423 | 33.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=13.552)
+[F1 D0.10] Epoch 050/120 | LR 1.304e-03 | Train Loss 10.4557 MAE 10.944 | Val Loss 12.7220 MAE 13.195 RMSE 18.046 | 31.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=13.195)
+[F1 D0.10] Epoch 051/120 | LR 1.278e-03 | Train Loss 10.3580 MAE 10.851 | Val Loss 15.1796 MAE 15.680 RMSE 19.654 | 33.5s
+[F1 D0.10] Epoch 052/120 | LR 1.252e-03 | Train Loss 10.1605 MAE 10.647 | Val Loss 18.9917 MAE 19.473 RMSE 24.229 | 32.3s
+[F1 D0.10] Epoch 053/120 | LR 1.226e-03 | Train Loss 10.0753 MAE 10.565 | Val Loss 14.7395 MAE 15.239 RMSE 20.441 | 32.4s
+[F1 D0.10] Epoch 054/120 | LR 1.200e-03 | Train Loss 9.6233 MAE 10.099 | Val Loss 15.6488 MAE 16.149 RMSE 20.476 | 31.4s
+[F1 D0.10] Epoch 055/120 | LR 1.174e-03 | Train Loss 9.6716 MAE 10.156 | Val Loss 17.5783 MAE 18.078 RMSE 22.786 | 32.7s
+[F1 D0.10] Epoch 056/120 | LR 1.147e-03 | Train Loss 9.6292 MAE 10.113 | Val Loss 13.9083 MAE 14.356 RMSE 20.616 | 33.9s
+[F1 D0.10] Epoch 057/120 | LR 1.121e-03 | Train Loss 9.2023 MAE 9.691 | Val Loss 14.4495 MAE 14.934 RMSE 20.836 | 32.5s
+[F1 D0.10] Epoch 058/120 | LR 1.094e-03 | Train Loss 9.0690 MAE 9.545 | Val Loss 14.6236 MAE 15.124 RMSE 20.173 | 32.5s
+[F1 D0.10] Epoch 059/120 | LR 1.067e-03 | Train Loss 8.6854 MAE 9.163 | Val Loss 12.0899 MAE 12.566 RMSE 17.308 | 32.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=12.566)
+[F1 D0.10] Epoch 060/120 | LR 1.040e-03 | Train Loss 8.8202 MAE 9.305 | Val Loss 13.8527 MAE 14.353 RMSE 19.419 | 32.3s
+[F1 D0.10] Epoch 061/120 | LR 1.013e-03 | Train Loss 8.9815 MAE 9.460 | Val Loss 20.7030 MAE 21.203 RMSE 25.091 | 33.9s
+[F1 D0.10] Epoch 062/120 | LR 9.866e-04 | Train Loss 9.2231 MAE 9.712 | Val Loss 19.0883 MAE 19.588 RMSE 23.819 | 33.5s
+[F1 D0.10] Epoch 063/120 | LR 9.597e-04 | Train Loss 8.5064 MAE 8.996 | Val Loss 13.4508 MAE 13.913 RMSE 19.115 | 32.1s
+[F1 D0.10] Epoch 064/120 | LR 9.329e-04 | Train Loss 8.1733 MAE 8.658 | Val Loss 12.2870 MAE 12.759 RMSE 17.912 | 32.4s
+[F1 D0.10] Epoch 065/120 | LR 9.062e-04 | Train Loss 8.3516 MAE 8.833 | Val Loss 12.2437 MAE 12.726 RMSE 17.720 | 32.6s
+[F1 D0.10] Epoch 066/120 | LR 8.795e-04 | Train Loss 8.2694 MAE 8.757 | Val Loss 11.2350 MAE 11.714 RMSE 16.428 | 32.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=11.714)
+[F1 D0.10] Epoch 067/120 | LR 8.529e-04 | Train Loss 8.3169 MAE 8.803 | Val Loss 11.1706 MAE 11.638 RMSE 16.229 | 33.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=11.638)
+[F1 D0.10] Epoch 068/120 | LR 8.264e-04 | Train Loss 7.6625 MAE 8.133 | Val Loss 11.5744 MAE 12.054 RMSE 16.454 | 32.6s
+[F1 D0.10] Epoch 069/120 | LR 8.000e-04 | Train Loss 7.7341 MAE 8.219 | Val Loss 11.9437 MAE 12.427 RMSE 16.986 | 31.8s
+[F1 D0.10] Epoch 070/120 | LR 7.737e-04 | Train Loss 7.7128 MAE 8.170 | Val Loss 11.7786 MAE 12.264 RMSE 16.697 | 47.1s
+[F1 D0.10] Epoch 071/120 | LR 7.477e-04 | Train Loss 7.6499 MAE 8.134 | Val Loss 11.5236 MAE 12.001 RMSE 16.284 | 27.8s
+[F1 D0.10] Epoch 072/120 | LR 7.218e-04 | Train Loss 7.6694 MAE 8.149 | Val Loss 12.8452 MAE 13.334 RMSE 18.489 | 26.7s
+[F1 D0.10] Epoch 073/120 | LR 6.961e-04 | Train Loss 7.5297 MAE 8.009 | Val Loss 14.2992 MAE 14.790 RMSE 20.042 | 25.8s
+[F1 D0.10] Epoch 074/120 | LR 6.706e-04 | Train Loss 6.9090 MAE 7.373 | Val Loss 13.8467 MAE 14.346 RMSE 19.325 | 27.8s
+[F1 D0.10] Epoch 075/120 | LR 6.454e-04 | Train Loss 7.2335 MAE 7.697 | Val Loss 12.6427 MAE 13.143 RMSE 17.880 | 26.4s
+[F1 D0.10] Epoch 076/120 | LR 6.204e-04 | Train Loss 7.4796 MAE 7.952 | Val Loss 11.1524 MAE 11.639 RMSE 16.447 | 26.6s
+[F1 D0.10] Epoch 077/120 | LR 5.957e-04 | Train Loss 7.5569 MAE 8.040 | Val Loss 11.1124 MAE 11.610 RMSE 16.307 | 25.8s
+  -> Saved best to runs\cv5_xs384_minaug\fold1_drop0p1\best_mae.pt (MAE=11.610)
+[F1 D0.10] Epoch 078/120 | LR 5.713e-04 | Train Loss 7.6035 MAE 8.069 | Val Loss 12.3450 MAE 12.845 RMSE 18.206 | 26.0s
+[F1 D0.10] Epoch 079/120 | LR 5.472e-04 | Train Loss 7.0320 MAE 7.496 | Val Loss 13.8504 MAE 14.350 RMSE 20.285 | 25.7s
+[F1 D0.10] Epoch 080/120 | LR 5.234e-04 | Train Loss 7.5984 MAE 8.083 | Val Loss 13.4060 MAE 13.906 RMSE 19.992 | 26.2s
+[F1 D0.10] Epoch 081/120 | LR 5.000e-04 | Train Loss 7.8143 MAE 8.293 | Val Loss 11.9885 MAE 12.459 RMSE 18.250 | 27.7s
+[F1 D0.10] Epoch 082/120 | LR 4.769e-04 | Train Loss 6.9454 MAE 7.420 | Val Loss 11.9590 MAE 12.459 RMSE 17.711 | 29.8s
+[F1 D0.10] Epoch 083/120 | LR 4.542e-04 | Train Loss 7.3817 MAE 7.859 | Val Loss 12.0427 MAE 12.543 RMSE 17.318 | 30.5s
+[F1 D0.10] Epoch 084/120 | LR 4.319e-04 | Train Loss 6.4181 MAE 6.892 | Val Loss 12.2261 MAE 12.726 RMSE 17.668 | 32.4s
+[F1 D0.10] Epoch 085/120 | LR 4.100e-04 | Train Loss 6.3596 MAE 6.813 | Val Loss 11.8375 MAE 12.324 RMSE 17.205 | 31.6s
+[F1 D0.10] Epoch 086/120 | LR 3.886e-04 | Train Loss 6.4459 MAE 6.894 | Val Loss 11.7034 MAE 12.201 RMSE 16.804 | 32.0s
+[F1 D0.10] Epoch 087/120 | LR 3.676e-04 | Train Loss 7.8135 MAE 8.313 | Val Loss 14.0554 MAE 14.550 RMSE 19.667 | 31.7s
+  -> Early stopping (no improve 10 epochs).
+Best on Fold 1: MAE=11.610 with dropout=0.10
+
+===== Fold 2/5 =====
+
+-- Dropout=0.10 -> out: runs\cv5_xs384_minaug\fold2_drop0p1
+[F2 D0.10] Epoch 001/120 | LR 1.333e-03 | Train Loss 36.7470 MAE 37.247 | Val Loss 30.5388 MAE 31.039 RMSE 34.647 | 85.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=31.039)
+[F2 D0.10] Epoch 002/120 | LR 2.000e-03 | Train Loss 36.5652 MAE 37.065 | Val Loss 31.6938 MAE 32.194 RMSE 35.640 | 44.9s
+[F2 D0.10] Epoch 003/120 | LR 2.000e-03 | Train Loss 36.1197 MAE 36.620 | Val Loss 32.2367 MAE 32.737 RMSE 36.145 | 35.4s
+[F2 D0.10] Epoch 004/120 | LR 2.000e-03 | Train Loss 35.4326 MAE 35.933 | Val Loss 30.9366 MAE 31.437 RMSE 34.994 | 36.8s
+[F2 D0.10] Epoch 005/120 | LR 1.999e-03 | Train Loss 34.7669 MAE 35.267 | Val Loss 30.3984 MAE 30.898 RMSE 34.500 | 32.8s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=30.898)
+[F2 D0.10] Epoch 006/120 | LR 1.997e-03 | Train Loss 34.0591 MAE 34.559 | Val Loss 29.3294 MAE 29.829 RMSE 33.545 | 31.8s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=29.829)
+[F2 D0.10] Epoch 007/120 | LR 1.994e-03 | Train Loss 33.3337 MAE 33.834 | Val Loss 28.4681 MAE 28.968 RMSE 32.776 | 36.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=28.968)
+[F2 D0.10] Epoch 008/120 | LR 1.991e-03 | Train Loss 32.5798 MAE 33.080 | Val Loss 28.2861 MAE 28.786 RMSE 32.624 | 45.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=28.786)
+[F2 D0.10] Epoch 009/120 | LR 1.987e-03 | Train Loss 31.7907 MAE 32.291 | Val Loss 27.5392 MAE 28.039 RMSE 31.969 | 52.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=28.039)
+[F2 D0.10] Epoch 010/120 | LR 1.982e-03 | Train Loss 31.0289 MAE 31.529 | Val Loss 26.4239 MAE 26.924 RMSE 31.006 | 54.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=26.924)
+[F2 D0.10] Epoch 011/120 | LR 1.977e-03 | Train Loss 30.1321 MAE 30.632 | Val Loss 25.6370 MAE 26.137 RMSE 30.337 | 65.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=26.137)
+[F2 D0.10] Epoch 012/120 | LR 1.971e-03 | Train Loss 29.3786 MAE 29.875 | Val Loss 24.2849 MAE 24.779 RMSE 29.126 | 38.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=24.779)
+[F2 D0.10] Epoch 013/120 | LR 1.964e-03 | Train Loss 28.5926 MAE 29.087 | Val Loss 24.2413 MAE 24.740 RMSE 28.975 | 49.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=24.740)
+[F2 D0.10] Epoch 014/120 | LR 1.957e-03 | Train Loss 27.7868 MAE 28.286 | Val Loss 23.3968 MAE 23.876 RMSE 28.317 | 54.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=23.876)
+MSE 22.042 | 35.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold2_drop0p1\best_mae.pt (MAE=17.524)
+[F2 D0.10] Epoch 020/120 | LR 1.898e-03 | Train Loss 23.0885 MAE 23.588 | Val Loss 17.2026 MAE 17.703 RMSE 22.027 | 40.7s       
+[F2 D0.10] Epoch 021/120 | LR 1.885e-03 | Train Loss 22.2170 MAE 22.714 | Val Loss 20.1806 MAE 20.670 RMSE 25.444 | 42.1s       
+[F2 D0.10] Epoch 022/120 | LR 1.873e-03 | Train Loss 21.4513 MAE 21.947 | Val Loss 20.6145 MAE 21.108 RMSE 25.584 | 43.3s       
+[F2 D0.10] Epoch 023/120 | LR 1.859e-03 | Train Loss 21.4733 MAE 21.966 | Val Loss 17.7466 MAE 18.239 RMSE 23.341 | 42.9s       
+[F2 D0.10] Epoch 024/120 | LR 1.845e-03 | Train Loss 19.9223 MAE 20.421 | Val Loss 21.6949 MAE 22.195 RMSE 26.858 | 44.4s       
+[F2 D0.10] Epoch 025/120 | LR 1.831e-03 | Train Loss 19.5915 MAE 20.086 | Val Loss 21.0759 MAE 21.576 RMSE 26.312 | 43.3s       
+[F2 D0.10] Epoch 026/120 | LR 1.815e-03 | Train Loss 18.8759 MAE 19.365 | Val Loss 19.4178 MAE 19.911 RMSE 24.454 | 44.5s       
+[F2 D0.10] Epoch 027/120 | LR 1.799e-03 | Train Loss 18.1089 MAE 18.598 | Val Loss 18.5572 MAE 19.046 RMSE 23.609 | 43.5s
+[F2 D0.10] Epoch 028/120 | LR 1.783e-03 | Train Loss 17.1557 MAE 17.647 | Val Loss 19.1471 MAE 19.647 RMSE 23.933 | 57.4s
+[F2 D0.10] Epoch 029/120 | LR 1.766e-03 | Train Loss 16.8103 MAE 17.306 | Val Loss 17.5797 MAE 18.080 RMSE 22.439 | 56.3s
+  -> Early stopping (no improve 10 epochs).
+Best on Fold 2: MAE=17.524 with dropout=0.10
+
+===== Fold 3/5 =====
+
+-- Dropout=0.10 -> out: runs\cv5_xs384_minaug\fold3_drop0p1
+[F3 D0.10] Epoch 001/120 | LR 1.333e-03 | Train Loss 35.9613 MAE 36.461 | Val Loss 35.3326 MAE 35.833 RMSE 39.025 | 148.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=35.833)
+[F3 D0.10] Epoch 002/120 | LR 2.000e-03 | Train Loss 35.7314 MAE 36.231 | Val Loss 35.6411 MAE 36.141 RMSE 39.294 | 62.7s
+[F3 D0.10] Epoch 003/120 | LR 2.000e-03 | Train Loss 35.2503 MAE 35.750 | Val Loss 35.1527 MAE 35.653 RMSE 38.938 | 54.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=35.653)
+[F3 D0.10] Epoch 004/120 | LR 2.000e-03 | Train Loss 34.5088 MAE 35.009 | Val Loss 34.0637 MAE 34.564 RMSE 37.964 | 49.8s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=34.564)
+[F3 D0.10] Epoch 005/120 | LR 1.999e-03 | Train Loss 33.7114 MAE 34.211 | Val Loss 33.3229 MAE 33.823 RMSE 37.199 | 45.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=33.823)
+[F3 D0.10] Epoch 006/120 | LR 1.997e-03 | Train Loss 33.0098 MAE 33.510 | Val Loss 32.9783 MAE 33.478 RMSE 36.812 | 58.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=33.478)
+[F3 D0.10] Epoch 007/120 | LR 1.994e-03 | Train Loss 32.4613 MAE 32.961 | Val Loss 32.0540 MAE 32.554 RMSE 36.065 | 51.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=32.554)
+[F3 D0.10] Epoch 008/120 | LR 1.991e-03 | Train Loss 31.8086 MAE 32.309 | Val Loss 31.9756 MAE 32.476 RMSE 36.146 | 45.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=32.476)
+[F3 D0.10] Epoch 009/120 | LR 1.987e-03 | Train Loss 30.8205 MAE 31.321 | Val Loss 33.3714 MAE 33.871 RMSE 40.643 | 47.2s
+[F3 D0.10] Epoch 010/120 | LR 1.982e-03 | Train Loss 30.0405 MAE 30.540 | Val Loss 31.2458 MAE 31.746 RMSE 36.534 | 65.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=31.746)
+[F3 D0.10] Epoch 011/120 | LR 1.977e-03 | Train Loss 29.4090 MAE 29.909 | Val Loss 41.3320 MAE 41.832 RMSE 45.447 | 77.1s
+[F3 D0.10] Epoch 012/120 | LR 1.971e-03 | Train Loss 28.5928 MAE 29.090 | Val Loss 29.8199 MAE 30.320 RMSE 33.799 | 79.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=30.320)
+[F3 D0.10] Epoch 013/120 | LR 1.964e-03 | Train Loss 27.8741 MAE 28.371 | Val Loss 26.9775 MAE 27.477 RMSE 31.694 | 78.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=27.477)
+[F3 D0.10] Epoch 014/120 | LR 1.957e-03 | Train Loss 27.1422 MAE 27.640 | Val Loss 29.1111 MAE 29.611 RMSE 33.880 | 78.8s
+[F3 D0.10] Epoch 015/120 | LR 1.949e-03 | Train Loss 26.3666 MAE 26.865 | Val Loss 26.3308 MAE 26.831 RMSE 31.159 | 79.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=26.831)
+[F3 D0.10] Epoch 016/120 | LR 1.940e-03 | Train Loss 25.6880 MAE 26.181 | Val Loss 25.3558 MAE 25.856 RMSE 30.165 | 68.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=25.856)
+[F3 D0.10] Epoch 017/120 | LR 1.930e-03 | Train Loss 24.9227 MAE 25.419 | Val Loss 24.3122 MAE 24.812 RMSE 29.274 | 68.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=24.812)
+[F3 D0.10] Epoch 018/120 | LR 1.920e-03 | Train Loss 24.1721 MAE 24.672 | Val Loss 23.2028 MAE 23.700 RMSE 28.335 | 68.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=23.700)
+[F3 D0.10] Epoch 019/120 | LR 1.909e-03 | Train Loss 23.4341 MAE 23.932 | Val Loss 22.3139 MAE 22.800 RMSE 27.567 | 57.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=22.800)
+[F3 D0.10] Epoch 020/120 | LR 1.898e-03 | Train Loss 22.8005 MAE 23.297 | Val Loss 22.4128 MAE 22.894 RMSE 27.768 | 46.0s
+[F3 D0.10] Epoch 021/120 | LR 1.885e-03 | Train Loss 22.1910 MAE 22.691 | Val Loss 21.8625 MAE 22.349 RMSE 27.165 | 37.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=22.349)
+[F3 D0.10] Epoch 022/120 | LR 1.873e-03 | Train Loss 21.5331 MAE 22.033 | Val Loss 20.7842 MAE 21.284 RMSE 26.131 | 37.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=21.284)
+[F3 D0.10] Epoch 023/120 | LR 1.859e-03 | Train Loss 20.7536 MAE 21.252 | Val Loss 19.7929 MAE 20.293 RMSE 25.171 | 37.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=20.293)
+[F3 D0.10] Epoch 024/120 | LR 1.845e-03 | Train Loss 20.0472 MAE 20.538 | Val Loss 18.9345 MAE 19.435 RMSE 24.298 | 36.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=19.435)
+[F3 D0.10] Epoch 025/120 | LR 1.831e-03 | Train Loss 19.3703 MAE 19.865 | Val Loss 18.3690 MAE 18.869 RMSE 23.747 | 37.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=18.869)
+[F3 D0.10] Epoch 026/120 | LR 1.815e-03 | Train Loss 18.7804 MAE 19.280 | Val Loss 17.6918 MAE 18.192 RMSE 23.128 | 34.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=18.192)
+[F3 D0.10] Epoch 027/120 | LR 1.799e-03 | Train Loss 18.4269 MAE 18.914 | Val Loss 17.2856 MAE 17.786 RMSE 23.237 | 32.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=17.786)
+[F3 D0.10] Epoch 028/120 | LR 1.783e-03 | Train Loss 17.8967 MAE 18.396 | Val Loss 55.8654 MAE 56.365 RMSE 62.277 | 32.3s
+[F3 D0.10] Epoch 029/120 | LR 1.766e-03 | Train Loss 17.0104 MAE 17.506 | Val Loss 22.4987 MAE 22.997 RMSE 27.711 | 32.9s
+[F3 D0.10] Epoch 030/120 | LR 1.749e-03 | Train Loss 16.8916 MAE 17.390 | Val Loss 20.7901 MAE 21.290 RMSE 25.939 | 32.0s
+[F3 D0.10] Epoch 031/120 | LR 1.730e-03 | Train Loss 16.3594 MAE 16.856 | Val Loss 23.9906 MAE 24.491 RMSE 28.069 | 32.5s
+[F3 D0.10] Epoch 032/120 | LR 1.712e-03 | Train Loss 15.9481 MAE 16.437 | Val Loss 21.2147 MAE 21.715 RMSE 25.920 | 32.4s
+[F3 D0.10] Epoch 033/120 | LR 1.693e-03 | Train Loss 15.2075 MAE 15.692 | Val Loss 15.5308 MAE 16.027 RMSE 21.094 | 32.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=16.027)
+[F3 D0.10] Epoch 034/120 | LR 1.673e-03 | Train Loss 14.9926 MAE 15.480 | Val Loss 14.3812 MAE 14.846 RMSE 20.123 | 31.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=14.846)
+[F3 D0.10] Epoch 035/120 | LR 1.653e-03 | Train Loss 14.8465 MAE 15.333 | Val Loss 14.5277 MAE 14.987 RMSE 20.053 | 32.3s
+[F3 D0.10] Epoch 036/120 | LR 1.632e-03 | Train Loss 14.8008 MAE 15.289 | Val Loss 17.5862 MAE 18.067 RMSE 22.485 | 32.2s
+[F3 D0.10] Epoch 037/120 | LR 1.611e-03 | Train Loss 14.0217 MAE 14.510 | Val Loss 33.1914 MAE 33.683 RMSE 44.443 | 33.2s
+[F3 D0.10] Epoch 038/120 | LR 1.590e-03 | Train Loss 14.2229 MAE 14.714 | Val Loss 15.9493 MAE 16.444 RMSE 21.486 | 32.5s
+[F3 D0.10] Epoch 039/120 | LR 1.568e-03 | Train Loss 13.6762 MAE 14.176 | Val Loss 15.3246 MAE 15.780 RMSE 20.902 | 32.0s
+[F3 D0.10] Epoch 040/120 | LR 1.546e-03 | Train Loss 13.0163 MAE 13.510 | Val Loss 14.5375 MAE 15.019 RMSE 19.825 | 31.7s
+[F3 D0.10] Epoch 041/120 | LR 1.523e-03 | Train Loss 12.9019 MAE 13.386 | Val Loss 13.9731 MAE 14.473 RMSE 18.974 | 32.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=14.473)
+[F3 D0.10] Epoch 042/120 | LR 1.500e-03 | Train Loss 12.4420 MAE 12.938 | Val Loss 13.6432 MAE 14.143 RMSE 18.269 | 32.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=14.143)
+[F3 D0.10] Epoch 043/120 | LR 1.477e-03 | Train Loss 12.1514 MAE 12.638 | Val Loss 13.5124 MAE 14.012 RMSE 18.071 | 32.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=14.012)
+[F3 D0.10] Epoch 044/120 | LR 1.453e-03 | Train Loss 12.8385 MAE 13.333 | Val Loss 13.6475 MAE 14.147 RMSE 18.367 | 31.8s
+[F3 D0.10] Epoch 045/120 | LR 1.429e-03 | Train Loss 11.9663 MAE 12.446 | Val Loss 14.2437 MAE 14.743 RMSE 19.187 | 31.7s
+[F3 D0.10] Epoch 046/120 | LR 1.404e-03 | Train Loss 11.6920 MAE 12.175 | Val Loss 14.2927 MAE 14.789 RMSE 19.304 | 32.1s
+[F3 D0.10] Epoch 047/120 | LR 1.380e-03 | Train Loss 11.6534 MAE 12.142 | Val Loss 13.4974 MAE 13.997 RMSE 17.722 | 32.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=13.997)
+[F3 D0.10] Epoch 048/120 | LR 1.355e-03 | Train Loss 11.3079 MAE 11.806 | Val Loss 14.3074 MAE 14.805 RMSE 18.012 | 32.4s
+[F3 D0.10] Epoch 049/120 | LR 1.329e-03 | Train Loss 11.3288 MAE 11.824 | Val Loss 13.8541 MAE 14.345 RMSE 17.513 | 31.9s
+[F3 D0.10] Epoch 050/120 | LR 1.304e-03 | Train Loss 10.7080 MAE 11.202 | Val Loss 12.2971 MAE 12.786 RMSE 16.471 | 32.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=12.786)
+[F3 D0.10] Epoch 051/120 | LR 1.278e-03 | Train Loss 10.2539 MAE 10.730 | Val Loss 11.3282 MAE 11.786 RMSE 15.945 | 32.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold3_drop0p1\best_mae.pt (MAE=11.786)
+[F3 D0.10] Epoch 052/120 | LR 1.252e-03 | Train Loss 9.8984 MAE 10.378 | Val Loss 11.6007 MAE 12.099 RMSE 15.882 | 31.6s
+[F3 D0.10] Epoch 053/120 | LR 1.226e-03 | Train Loss 10.5820 MAE 11.059 | Val Loss 11.5814 MAE 12.063 RMSE 15.709 | 32.2s
+[F3 D0.10] Epoch 054/120 | LR 1.200e-03 | Train Loss 10.0890 MAE 10.567 | Val Loss 12.0467 MAE 12.547 RMSE 15.933 | 31.4s
+[F3 D0.10] Epoch 055/120 | LR 1.174e-03 | Train Loss 10.3553 MAE 10.830 | Val Loss 11.9254 MAE 12.425 RMSE 15.837 | 32.0s
+[F3 D0.10] Epoch 056/120 | LR 1.147e-03 | Train Loss 9.5424 MAE 10.030 | Val Loss 12.0336 MAE 12.534 RMSE 15.854 | 31.8s
+[F3 D0.10] Epoch 057/120 | LR 1.121e-03 | Train Loss 9.4284 MAE 9.904 | Val Loss 11.8753 MAE 12.375 RMSE 15.698 | 31.3s
+[F3 D0.10] Epoch 058/120 | LR 1.094e-03 | Train Loss 9.4706 MAE 9.957 | Val Loss 12.2225 MAE 12.722 RMSE 15.959 | 32.0s
+[F3 D0.10] Epoch 059/120 | LR 1.067e-03 | Train Loss 8.9326 MAE 9.416 | Val Loss 13.2477 MAE 13.748 RMSE 16.465 | 32.0s
+[F3 D0.10] Epoch 060/120 | LR 1.040e-03 | Train Loss 8.6972 MAE 9.161 | Val Loss 13.2108 MAE 13.711 RMSE 16.848 | 32.7s
+[F3 D0.10] Epoch 061/120 | LR 1.013e-03 | Train Loss 8.8838 MAE 9.374 | Val Loss 12.5660 MAE 13.066 RMSE 15.963 | 31.4s
+  -> Early stopping (no improve 10 epochs).
+Best on Fold 3: MAE=11.786 with dropout=0.10
+
+===== Fold 4/5 =====
+
+-- Dropout=0.10 -> out: runs\cv5_xs384_minaug\fold4_drop0p1
+[F4 D0.10] Epoch 001/120 | LR 1.333e-03 | Train Loss 35.5181 MAE 36.018 | Val Loss 30.5213 MAE 31.021 RMSE 34.647 | 51.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold4_drop0p1\best_mae.pt (MAE=31.021)
+[F4 D0.10] Epoch 002/120 | LR 2.000e-03 | Train Loss 35.3134 MAE 35.813 | Val Loss 36.3975 MAE 36.898 RMSE 40.009 | 37.1s
+[F4 D0.10] Epoch 003/120 | LR 2.000e-03 | Train Loss 34.8530 MAE 35.353 | Val Loss 37.2655 MAE 37.766 RMSE 40.783 | 33.3s
+[F4 D0.10] Epoch 004/120 | LR 2.000e-03 | Train Loss 34.1820 MAE 34.682 | Val Loss 36.4511 MAE 36.951 RMSE 40.035 | 32.7s
+[F4 D0.10] Epoch 005/120 | LR 1.999e-03 | Train Loss 33.4530 MAE 33.953 | Val Loss 35.7601 MAE 36.260 RMSE 39.403 | 33.0s
+[F4 D0.10] Epoch 006/120 | LR 1.997e-03 | Train Loss 32.7031 MAE 33.203 | Val Loss 35.3820 MAE 35.882 RMSE 39.052 | 32.9s
+[F4 D0.10] Epoch 007/120 | LR 1.994e-03 | Train Loss 31.9963 MAE 32.496 | Val Loss 35.8566 MAE 36.357 RMSE 39.375 | 32.6s
+[F4 D0.10] Epoch 008/120 | LR 1.991e-03 | Train Loss 31.2962 MAE 31.796 | Val Loss 34.2671 MAE 34.767 RMSE 38.073 | 32.7s
+[F4 D0.10] Epoch 009/120 | LR 1.987e-03 | Train Loss 30.4582 MAE 30.958 | Val Loss 33.0025 MAE 33.502 RMSE 36.900 | 33.7s
+[F4 D0.10] Epoch 010/120 | LR 1.982e-03 | Train Loss 29.6833 MAE 30.183 | Val Loss 32.0783 MAE 32.578 RMSE 36.037 | 32.4s
+[F4 D0.10] Epoch 011/120 | LR 1.977e-03 | Train Loss 28.8943 MAE 29.394 | Val Loss 30.6150 MAE 31.115 RMSE 34.723 | 33.3s
+  -> Early stopping (no improve 10 epochs).
+Best on Fold 4: MAE=31.021 with dropout=0.10
+
+===== Fold 5/5 =====
+
+-- Dropout=0.10 -> out: runs\cv5_xs384_minaug\fold5_drop0p1
+[F5 D0.10] Epoch 001/120 | LR 1.333e-03 | Train Loss 36.4773 MAE 36.977 | Val Loss 36.7110 MAE 37.211 RMSE 38.639 | 46.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=37.211)
+[F5 D0.10] Epoch 002/120 | LR 2.000e-03 | Train Loss 36.2716 MAE 36.772 | Val Loss 33.2719 MAE 33.772 RMSE 35.370 | 34.8s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=33.772)
+[F5 D0.10] Epoch 003/120 | LR 2.000e-03 | Train Loss 35.8067 MAE 36.307 | Val Loss 33.5890 MAE 34.089 RMSE 35.700 | 33.4s
+[F5 D0.10] Epoch 004/120 | LR 2.000e-03 | Train Loss 35.0778 MAE 35.578 | Val Loss 32.9970 MAE 33.497 RMSE 35.056 | 33.8s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=33.497)
+[F5 D0.10] Epoch 005/120 | LR 1.999e-03 | Train Loss 34.2971 MAE 34.797 | Val Loss 31.9432 MAE 32.443 RMSE 33.975 | 33.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=32.443)
+[F5 D0.10] Epoch 006/120 | LR 1.997e-03 | Train Loss 33.5792 MAE 34.079 | Val Loss 30.7519 MAE 31.252 RMSE 32.968 | 33.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=31.252)
+[F5 D0.10] Epoch 007/120 | LR 1.994e-03 | Train Loss 32.7609 MAE 33.261 | Val Loss 30.1729 MAE 30.673 RMSE 32.291 | 39.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=30.673)
+[F5 D0.10] Epoch 008/120 | LR 1.991e-03 | Train Loss 32.0316 MAE 32.532 | Val Loss 29.6574 MAE 30.157 RMSE 31.718 | 47.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=30.157)
+[F5 D0.10] Epoch 009/120 | LR 1.987e-03 | Train Loss 31.1945 MAE 31.695 | Val Loss 28.2565 MAE 28.757 RMSE 30.598 | 46.8s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=28.757)
+[F5 D0.10] Epoch 010/120 | LR 1.982e-03 | Train Loss 30.3638 MAE 30.864 | Val Loss 27.5654 MAE 28.065 RMSE 29.963 | 47.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=28.065)
+[F5 D0.10] Epoch 011/120 | LR 1.977e-03 | Train Loss 29.4688 MAE 29.969 | Val Loss 26.7838 MAE 27.284 RMSE 29.235 | 47.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=27.284)
+[F5 D0.10] Epoch 012/120 | LR 1.971e-03 | Train Loss 28.6066 MAE 29.102 | Val Loss 26.7892 MAE 27.289 RMSE 29.066 | 44.8s
+[F5 D0.10] Epoch 013/120 | LR 1.964e-03 | Train Loss 27.8326 MAE 28.326 | Val Loss 26.0108 MAE 26.511 RMSE 28.374 | 45.7s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=26.511)
+[F5 D0.10] Epoch 014/120 | LR 1.957e-03 | Train Loss 27.4695 MAE 27.964 | Val Loss 24.6470 MAE 25.147 RMSE 27.143 | 44.0s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=25.147)
+[F5 D0.10] Epoch 015/120 | LR 1.949e-03 | Train Loss 26.4356 MAE 26.933 | Val Loss 24.4587 MAE 24.959 RMSE 27.033 | 48.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=24.959)
+[F5 D0.10] Epoch 016/120 | LR 1.940e-03 | Train Loss 25.6786 MAE 26.179 | Val Loss 23.1569 MAE 23.657 RMSE 25.632 | 47.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=23.657)
+[F5 D0.10] Epoch 017/120 | LR 1.930e-03 | Train Loss 24.9966 MAE 25.496 | Val Loss 21.4568 MAE 21.957 RMSE 24.034 | 46.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=21.957)
+[F5 D0.10] Epoch 018/120 | LR 1.920e-03 | Train Loss 24.2697 MAE 24.763 | Val Loss 19.5375 MAE 20.038 RMSE 22.063 | 45.6s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=20.038)
+[F5 D0.10] Epoch 019/120 | LR 1.909e-03 | Train Loss 23.3907 MAE 23.881 | Val Loss 18.0687 MAE 18.569 RMSE 20.659 | 46.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=18.569)
+[F5 D0.10] Epoch 020/120 | LR 1.898e-03 | Train Loss 22.5688 MAE 23.062 | Val Loss 17.5737 MAE 18.074 RMSE 20.173 | 46.1s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=18.074)
+[F5 D0.10] Epoch 021/120 | LR 1.885e-03 | Train Loss 21.8727 MAE 22.368 | Val Loss 17.3740 MAE 17.874 RMSE 19.959 | 46.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=17.874)
+[F5 D0.10] Epoch 022/120 | LR 1.873e-03 | Train Loss 21.0227 MAE 21.520 | Val Loss 18.3292 MAE 18.829 RMSE 20.870 | 46.3s
+[F5 D0.10] Epoch 023/120 | LR 1.859e-03 | Train Loss 20.3681 MAE 20.861 | Val Loss 17.3456 MAE 17.846 RMSE 19.889 | 44.9s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=17.846)
+[F5 D0.10] Epoch 024/120 | LR 1.845e-03 | Train Loss 19.4783 MAE 19.968 | Val Loss 17.8983 MAE 18.398 RMSE 20.470 | 44.7s
+[F5 D0.10] Epoch 025/120 | LR 1.831e-03 | Train Loss 18.9639 MAE 19.457 | Val Loss 15.5979 MAE 16.098 RMSE 18.185 | 44.8s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=16.098)
+[F5 D0.10] Epoch 026/120 | LR 1.815e-03 | Train Loss 18.1548 MAE 18.650 | Val Loss 15.5572 MAE 16.057 RMSE 18.158 | 43.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=16.057)
+[F5 D0.10] Epoch 027/120 | LR 1.799e-03 | Train Loss 17.4511 MAE 17.937 | Val Loss 12.9042 MAE 13.404 RMSE 15.769 | 44.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=13.404)
+[F5 D0.10] Epoch 028/120 | LR 1.783e-03 | Train Loss 16.8288 MAE 17.314 | Val Loss 8.5090 MAE 8.990 RMSE 11.826 | 45.5s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=8.990)
+[F5 D0.10] Epoch 029/120 | LR 1.766e-03 | Train Loss 16.2454 MAE 16.737 | Val Loss 19.8302 MAE 20.330 RMSE 22.910 | 46.7s
+[F5 D0.10] Epoch 030/120 | LR 1.749e-03 | Train Loss 16.0958 MAE 16.591 | Val Loss 15.3435 MAE 15.838 RMSE 18.110 | 44.9s
+[F5 D0.10] Epoch 031/120 | LR 1.730e-03 | Train Loss 15.1338 MAE 15.634 | Val Loss 10.5713 MAE 11.063 RMSE 14.046 | 44.3s
+[F5 D0.10] Epoch 032/120 | LR 1.712e-03 | Train Loss 15.1006 MAE 15.598 | Val Loss 11.2671 MAE 11.759 RMSE 14.652 | 45.9s
+[F5 D0.10] Epoch 033/120 | LR 1.693e-03 | Train Loss 14.2658 MAE 14.751 | Val Loss 14.4343 MAE 14.934 RMSE 17.253 | 45.7s
+[F5 D0.10] Epoch 034/120 | LR 1.673e-03 | Train Loss 13.6124 MAE 14.104 | Val Loss 14.8776 MAE 15.378 RMSE 17.917 | 46.4s
+[F5 D0.10] Epoch 035/120 | LR 1.653e-03 | Train Loss 16.2503 MAE 16.743 | Val Loss 9.8425 MAE 10.319 RMSE 13.327 | 46.5s
+[F5 D0.10] Epoch 036/120 | LR 1.632e-03 | Train Loss 13.2184 MAE 13.708 | Val Loss 11.2297 MAE 11.709 RMSE 14.811 | 45.2s
+[F5 D0.10] Epoch 037/120 | LR 1.611e-03 | Train Loss 12.8710 MAE 13.367 | Val Loss 11.3001 MAE 11.793 RMSE 14.934 | 44.2s
+[F5 D0.10] Epoch 038/120 | LR 1.590e-03 | Train Loss 12.3647 MAE 12.848 | Val Loss 8.4423 MAE 8.941 RMSE 11.659 | 46.2s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=8.941)
+[F5 D0.10] Epoch 039/120 | LR 1.568e-03 | Train Loss 11.9490 MAE 12.439 | Val Loss 7.4010 MAE 7.898 RMSE 10.950 | 46.4s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=7.898)
+[F5 D0.10] Epoch 040/120 | LR 1.546e-03 | Train Loss 11.6301 MAE 12.116 | Val Loss 7.0252 MAE 7.506 RMSE 10.679 | 44.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=7.506)
+[F5 D0.10] Epoch 041/120 | LR 1.523e-03 | Train Loss 11.8936 MAE 12.377 | Val Loss 13.5282 MAE 14.028 RMSE 16.655 | 44.6s
+[F5 D0.10] Epoch 042/120 | LR 1.500e-03 | Train Loss 11.8491 MAE 12.338 | Val Loss 10.4771 MAE 10.955 RMSE 14.321 | 45.5s
+[F5 D0.10] Epoch 043/120 | LR 1.477e-03 | Train Loss 11.1720 MAE 11.640 | Val Loss 7.8440 MAE 8.344 RMSE 10.499 | 46.4s
+[F5 D0.10] Epoch 044/120 | LR 1.453e-03 | Train Loss 10.8910 MAE 11.369 | Val Loss 6.7718 MAE 7.262 RMSE 9.593 | 51.3s
+  -> Saved best to runs\cv5_xs384_minaug\fold5_drop0p1\best_mae.pt (MAE=7.262)
+[F5 D0.10] Epoch 045/120 | LR 1.429e-03 | Train Loss 10.7833 MAE 11.266 | Val Loss 8.8200 MAE 9.290 RMSE 11.960 | 46.4s
+[F5 D0.10] Epoch 046/120 | LR 1.404e-03 | Train Loss 10.4850 MAE 10.966 | Val Loss 7.6960 MAE 8.196 RMSE 11.341 | 43.6s
+[F5 D0.10] Epoch 047/120 | LR 1.380e-03 | Train Loss 11.3547 MAE 11.835 | Val Loss 6.9348 MAE 7.402 RMSE 10.420 | 45.7s
+[F5 D0.10] Epoch 048/120 | LR 1.355e-03 | Train Loss 9.7405 MAE 10.230 | Val Loss 7.1238 MAE 7.600 RMSE 10.499 | 47.6s
+[F5 D0.10] Epoch 049/120 | LR 1.329e-03 | Train Loss 9.6824 MAE 10.169 | Val Loss 7.3647 MAE 7.863 RMSE 10.648 | 45.9s
+[F5 D0.10] Epoch 050/120 | LR 1.304e-03 | Train Loss 9.4292 MAE 9.918 | Val Loss 9.1582 MAE 9.658 RMSE 12.189 | 45.3s
+[F5 D0.10] Epoch 051/120 | LR 1.278e-03 | Train Loss 8.8733 MAE 9.363 | Val Loss 10.3882 MAE 10.888 RMSE 13.568 | 44.8s
+[F5 D0.10] Epoch 052/120 | LR 1.252e-03 | Train Loss 8.8096 MAE 9.307 | Val Loss 10.5931 MAE 11.072 RMSE 13.748 | 45.4s
+[F5 D0.10] Epoch 053/120 | LR 1.226e-03 | Train Loss 8.6172 MAE 9.106 | Val Loss 11.9850 MAE 12.485 RMSE 14.674 | 44.4s
+[F5 D0.10] Epoch 054/120 | LR 1.200e-03 | Train Loss 7.9758 MAE 8.472 | Val Loss 11.8273 MAE 12.322 RMSE 14.604 | 49.8s
+  -> Early stopping (no improve 10 epochs).
+Best on Fold 5: MAE=7.262 with dropout=0.10
