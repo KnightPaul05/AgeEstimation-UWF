@@ -1,0 +1,13 @@
+For annotation only :
+
+python .\disc_annotator.py annotate `
+   --img-dir "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\images" `
+   --csv     "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\crop\disc_bboxes.csv"
+ 
+
+For cropping :
+python .\disc_annotator.py crop `
+  --img-dir "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\images" `
+  --csv "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\crop\disc_bboxes.csv" `
+  --out-dir "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\crop_images" `
+  --crop-width 384 --crop-height 384
