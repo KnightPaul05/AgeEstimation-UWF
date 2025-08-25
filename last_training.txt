@@ -1,0 +1,17 @@
+python .\mobilevit_cv5.py `
+  --csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\images" `
+  --out "runs\cv5_xs384_light_long" `
+  --model mobilevit_xs `
+  --img-size 384 `
+  --epochs 80 `
+  --batch-size 12 `
+  --lr 3e-4 `
+  --weight-decay 1e-5 `
+  --scheduler cosine `
+  --warmup-epochs 3 `
+  --folds 5 `
+  --dropout 0.3 `
+  --patience 15 `
+  --num-workers 4 `
+  --amp
