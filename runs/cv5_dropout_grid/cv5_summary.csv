@@ -1,0 +1,16 @@
+fold,dropout,best_val_mae,ckpt
+1,0.1,8.222599983215332,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold1_drop0p1\best_mae.pt
+1,0.05,10.140304565429688,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold1_drop0p05\best_mae.pt
+1,0.15,11.71225643157959,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold1_drop0p15\best_mae.pt
+2,0.1,9.427599906921387,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold2_drop0p1\best_mae.pt
+2,0.05,11.39594554901123,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold2_drop0p05\best_mae.pt
+2,0.15,12.669051170349121,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold2_drop0p15\best_mae.pt
+3,0.1,10.841320991516113,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold3_drop0p1\best_mae.pt
+3,0.15,11.310606002807617,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold3_drop0p15\best_mae.pt
+3,0.05,12.175565719604492,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold3_drop0p05\best_mae.pt
+4,0.05,11.422663688659668,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold4_drop0p05\best_mae.pt
+4,0.1,11.600956916809082,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold4_drop0p1\best_mae.pt
+4,0.15,12.69547176361084,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold4_drop0p15\best_mae.pt
+5,0.1,6.584422588348389,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold5_drop0p1\best_mae.pt
+5,0.05,9.147128105163574,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold5_drop0p05\best_mae.pt
+5,0.15,9.458785057067871,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\fold5_drop0p15\best_mae.pt
