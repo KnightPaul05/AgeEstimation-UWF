@@ -1,0 +1,6 @@
+fold,dropout,best_val_mae,ckpt
+1,0.1,14.03576946258545,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square_strong\fold1_drop0p1\best_mae.pt
+2,0.1,12.61905574798584,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square_strong\fold2_drop0p1\best_mae.pt
+3,0.1,10.716425895690918,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square_strong\fold3_drop0p1\best_mae.pt
+4,0.1,14.148831367492676,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square_strong\fold4_drop0p1\best_mae.pt
+5,0.1,14.953027725219727,C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square_strong\fold5_drop0p1\best_mae.pt

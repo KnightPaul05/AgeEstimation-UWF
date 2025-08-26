@@ -1,0 +1,708 @@
+python mobilevit_cv5.py `
+>>   --csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+>>   --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images" `
+>>   --out "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1" `
+>>   --model mobilevit_xs --img-size 512 `
+>>   --dropout 0.1 `
+>>   --epochs 150 --batch-size 16 `
+>>   --lr 1e-3 --weight-decay 0.01 `
+>>   --scheduler cosine --warmup-epochs 5 `
+>>   --max-grad-norm 1.0 `
+>>   --amp `
+>>   --seed 42 `
+>>   --patience 15 `
+>>   --num-workers 4
+>>
+
+===== CV summary =====
+   fold  dropout  best_val_mae                                               ckpt
+0     1      0.1     17.404081  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+1     2      0.1      9.621581  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+2     3      0.1     14.622629  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+3     4      0.1     14.430590  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+4     5      0.1      6.912136  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+Saved: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\cv5_summary.csv
+
+
+
+
+
+
+===== Fold 1/5 =====
+
+-- Dropout=0.10 -> out: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1
+C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src\mobilevit_cv5.py:303: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=(args.amp and device.type=='cuda'))
+C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src\mobilevit_cv5.py:163: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=use_amp):
+[F1 D0.10] Epoch 001/150 | LR 4.000e-04 | Train Loss 34.6567 MAE 35.157 | Val Loss 43.6937 MAE 44.194 RMSE 46.451 | 23.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=44.194)
+[F1 D0.10] Epoch 002/150 | LR 6.000e-04 | Train Loss 34.5825 MAE 35.083 | Val Loss 41.5517 MAE 42.052 RMSE 44.407 | 3.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=42.052)
+[F1 D0.10] Epoch 003/150 | LR 8.000e-04 | Train Loss 34.4175 MAE 34.917 | Val Loss 40.7221 MAE 41.222 RMSE 43.566 | 4.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=41.222)
+[F1 D0.10] Epoch 004/150 | LR 1.000e-03 | Train Loss 34.1401 MAE 34.640 | Val Loss 40.2286 MAE 40.729 RMSE 43.080 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=40.729)
+[F1 D0.10] Epoch 005/150 | LR 1.000e-03 | Train Loss 33.7332 MAE 34.233 | Val Loss 39.8549 MAE 40.355 RMSE 42.763 | 5.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=40.355)
+[F1 D0.10] Epoch 006/150 | LR 9.999e-04 | Train Loss 33.2052 MAE 33.705 | Val Loss 39.2272 MAE 39.727 RMSE 42.118 | 5.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=39.727)
+[F1 D0.10] Epoch 007/150 | LR 9.995e-04 | Train Loss 32.6920 MAE 33.192 | Val Loss 38.6857 MAE 39.186 RMSE 41.645 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=39.186)
+[F1 D0.10] Epoch 008/150 | LR 9.989e-04 | Train Loss 32.1632 MAE 32.663 | Val Loss 38.0308 MAE 38.531 RMSE 40.982 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=38.531)
+[F1 D0.10] Epoch 009/150 | LR 9.981e-04 | Train Loss 31.5957 MAE 32.096 | Val Loss 37.4333 MAE 37.933 RMSE 40.413 | 5.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=37.933)
+[F1 D0.10] Epoch 010/150 | LR 9.971e-04 | Train Loss 31.0615 MAE 31.561 | Val Loss 37.0166 MAE 37.517 RMSE 40.017 | 5.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=37.517)
+[F1 D0.10] Epoch 011/150 | LR 9.958e-04 | Train Loss 30.5082 MAE 31.008 | Val Loss 36.5323 MAE 37.032 RMSE 39.563 | 4.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=37.032)
+[F1 D0.10] Epoch 012/150 | LR 9.943e-04 | Train Loss 30.1195 MAE 30.619 | Val Loss 36.0634 MAE 36.563 RMSE 39.124 | 5.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=36.563)
+[F1 D0.10] Epoch 013/150 | LR 9.925e-04 | Train Loss 29.4738 MAE 29.974 | Val Loss 35.6530 MAE 36.153 RMSE 38.745 | 5.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=36.153)
+[F1 D0.10] Epoch 014/150 | LR 9.905e-04 | Train Loss 28.9531 MAE 29.453 | Val Loss 35.1316 MAE 35.632 RMSE 38.293 | 5.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=35.632)
+[F1 D0.10] Epoch 015/150 | LR 9.883e-04 | Train Loss 28.4142 MAE 28.914 | Val Loss 34.6398 MAE 35.140 RMSE 37.878 | 5.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=35.140)
+[F1 D0.10] Epoch 016/150 | LR 9.859e-04 | Train Loss 27.8856 MAE 28.385 | Val Loss 35.1635 MAE 35.664 RMSE 38.921 | 4.6s
+[F1 D0.10] Epoch 017/150 | LR 9.832e-04 | Train Loss 27.4198 MAE 27.918 | Val Loss 33.7337 MAE 34.234 RMSE 36.956 | 5.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=34.234)
+[F1 D0.10] Epoch 018/150 | LR 9.803e-04 | Train Loss 26.9420 MAE 27.432 | Val Loss 33.4146 MAE 33.915 RMSE 36.657 | 5.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=33.915)
+[F1 D0.10] Epoch 019/150 | LR 9.772e-04 | Train Loss 26.7298 MAE 27.221 | Val Loss 33.0317 MAE 33.532 RMSE 36.302 | 5.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=33.532)
+[F1 D0.10] Epoch 020/150 | LR 9.738e-04 | Train Loss 26.4033 MAE 26.898 | Val Loss 32.4311 MAE 32.931 RMSE 35.748 | 5.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=32.931)
+[F1 D0.10] Epoch 021/150 | LR 9.703e-04 | Train Loss 26.3141 MAE 26.809 | Val Loss 33.6731 MAE 34.173 RMSE 36.646 | 5.9s
+[F1 D0.10] Epoch 022/150 | LR 9.665e-04 | Train Loss 25.5290 MAE 26.028 | Val Loss 32.4294 MAE 32.929 RMSE 35.546 | 6.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=32.929)
+[F1 D0.10] Epoch 023/150 | LR 9.625e-04 | Train Loss 25.1090 MAE 25.608 | Val Loss 31.0583 MAE 31.558 RMSE 34.458 | 5.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=31.558)
+[F1 D0.10] Epoch 024/150 | LR 9.582e-04 | Train Loss 24.7580 MAE 25.256 | Val Loss 33.0571 MAE 33.557 RMSE 36.082 | 4.6s
+[F1 D0.10] Epoch 025/150 | LR 9.538e-04 | Train Loss 24.3192 MAE 24.819 | Val Loss 31.0754 MAE 31.575 RMSE 34.473 | 4.4s
+[F1 D0.10] Epoch 026/150 | LR 9.491e-04 | Train Loss 23.8823 MAE 24.382 | Val Loss 30.5761 MAE 31.076 RMSE 34.030 | 5.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=31.076)
+[F1 D0.10] Epoch 027/150 | LR 9.443e-04 | Train Loss 23.4887 MAE 23.989 | Val Loss 31.4556 MAE 31.956 RMSE 34.892 | 5.0s
+[F1 D0.10] Epoch 028/150 | LR 9.392e-04 | Train Loss 23.0687 MAE 23.568 | Val Loss 32.7445 MAE 33.244 RMSE 36.602 | 4.9s
+[F1 D0.10] Epoch 029/150 | LR 9.339e-04 | Train Loss 22.5997 MAE 23.091 | Val Loss 28.6618 MAE 29.162 RMSE 32.330 | 4.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=29.162)
+[F1 D0.10] Epoch 030/150 | LR 9.284e-04 | Train Loss 22.5011 MAE 22.993 | Val Loss 28.0913 MAE 28.591 RMSE 31.799 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=28.591)
+[F1 D0.10] Epoch 031/150 | LR 9.227e-04 | Train Loss 22.1320 MAE 22.622 | Val Loss 29.0276 MAE 29.528 RMSE 32.577 | 4.8s
+[F1 D0.10] Epoch 032/150 | LR 9.169e-04 | Train Loss 21.7584 MAE 22.254 | Val Loss 28.5379 MAE 29.038 RMSE 32.158 | 5.2s
+[F1 D0.10] Epoch 033/150 | LR 9.108e-04 | Train Loss 21.3782 MAE 21.873 | Val Loss 28.1660 MAE 28.666 RMSE 31.713 | 5.2s
+[F1 D0.10] Epoch 034/150 | LR 9.045e-04 | Train Loss 20.9471 MAE 21.443 | Val Loss 28.8484 MAE 29.348 RMSE 32.306 | 5.2s
+[F1 D0.10] Epoch 035/150 | LR 8.980e-04 | Train Loss 20.6540 MAE 21.147 | Val Loss 27.5361 MAE 28.036 RMSE 31.135 | 5.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=28.036)
+[F1 D0.10] Epoch 036/150 | LR 8.914e-04 | Train Loss 20.2879 MAE 20.788 | Val Loss 26.4714 MAE 26.971 RMSE 30.224 | 4.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=26.971)
+[F1 D0.10] Epoch 037/150 | LR 8.846e-04 | Train Loss 19.9737 MAE 20.474 | Val Loss 25.3259 MAE 25.826 RMSE 29.287 | 5.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=25.826)
+[F1 D0.10] Epoch 038/150 | LR 8.776e-04 | Train Loss 20.1945 MAE 20.695 | Val Loss 26.6186 MAE 27.119 RMSE 30.610 | 4.5s
+[F1 D0.10] Epoch 039/150 | LR 8.704e-04 | Train Loss 19.4667 MAE 19.967 | Val Loss 25.9962 MAE 26.496 RMSE 29.887 | 4.7s
+[F1 D0.10] Epoch 040/150 | LR 8.630e-04 | Train Loss 19.2911 MAE 19.788 | Val Loss 24.7786 MAE 25.271 RMSE 28.819 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=25.271)
+[F1 D0.10] Epoch 041/150 | LR 8.555e-04 | Train Loss 18.9735 MAE 19.472 | Val Loss 24.4084 MAE 24.902 RMSE 28.525 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=24.902)
+[F1 D0.10] Epoch 042/150 | LR 8.478e-04 | Train Loss 18.6917 MAE 19.187 | Val Loss 23.6995 MAE 24.184 RMSE 27.883 | 5.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=24.184)
+[F1 D0.10] Epoch 043/150 | LR 8.399e-04 | Train Loss 18.5937 MAE 19.085 | Val Loss 23.5473 MAE 24.037 RMSE 27.739 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=24.037)
+[F1 D0.10] Epoch 044/150 | LR 8.319e-04 | Train Loss 18.3989 MAE 18.897 | Val Loss 23.4380 MAE 23.936 RMSE 27.534 | 4.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=23.936)
+[F1 D0.10] Epoch 045/150 | LR 8.237e-04 | Train Loss 17.8845 MAE 18.384 | Val Loss 23.3029 MAE 23.803 RMSE 27.248 | 5.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=23.803)
+[F1 D0.10] Epoch 046/150 | LR 8.154e-04 | Train Loss 17.2798 MAE 17.771 | Val Loss 23.3230 MAE 23.823 RMSE 27.141 | 5.2s
+[F1 D0.10] Epoch 047/150 | LR 8.069e-04 | Train Loss 17.1215 MAE 17.608 | Val Loss 22.7680 MAE 23.268 RMSE 26.688 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=23.268)
+[F1 D0.10] Epoch 048/150 | LR 7.983e-04 | Train Loss 17.0552 MAE 17.547 | Val Loss 22.4744 MAE 22.974 RMSE 26.541 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=22.974)
+[F1 D0.10] Epoch 049/150 | LR 7.895e-04 | Train Loss 16.9423 MAE 17.431 | Val Loss 23.7352 MAE 24.235 RMSE 27.608 | 4.5s
+[F1 D0.10] Epoch 050/150 | LR 7.806e-04 | Train Loss 16.5410 MAE 17.038 | Val Loss 23.7165 MAE 24.217 RMSE 27.546 | 4.8s
+[F1 D0.10] Epoch 051/150 | LR 7.716e-04 | Train Loss 16.0256 MAE 16.524 | Val Loss 23.9998 MAE 24.500 RMSE 27.663 | 4.9s
+[F1 D0.10] Epoch 052/150 | LR 7.624e-04 | Train Loss 16.1899 MAE 16.690 | Val Loss 24.5147 MAE 25.015 RMSE 28.145 | 4.5s
+[F1 D0.10] Epoch 053/150 | LR 7.531e-04 | Train Loss 16.0053 MAE 16.495 | Val Loss 21.8842 MAE 22.384 RMSE 26.161 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=22.384)
+[F1 D0.10] Epoch 054/150 | LR 7.437e-04 | Train Loss 15.2502 MAE 15.743 | Val Loss 21.1183 MAE 21.618 RMSE 25.183 | 4.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=21.618)
+[F1 D0.10] Epoch 055/150 | LR 7.342e-04 | Train Loss 15.1983 MAE 15.689 | Val Loss 20.4163 MAE 20.916 RMSE 24.715 | 5.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=20.916)
+[F1 D0.10] Epoch 056/150 | LR 7.246e-04 | Train Loss 15.2322 MAE 15.724 | Val Loss 20.4191 MAE 20.919 RMSE 24.856 | 4.7s
+[F1 D0.10] Epoch 057/150 | LR 7.148e-04 | Train Loss 14.7627 MAE 15.243 | Val Loss 20.8762 MAE 21.376 RMSE 25.472 | 5.1s
+[F1 D0.10] Epoch 058/150 | LR 7.050e-04 | Train Loss 14.4382 MAE 14.929 | Val Loss 22.5862 MAE 23.086 RMSE 27.103 | 5.1s
+[F1 D0.10] Epoch 059/150 | LR 6.951e-04 | Train Loss 14.4914 MAE 14.971 | Val Loss 25.6910 MAE 26.191 RMSE 30.332 | 4.8s
+[F1 D0.10] Epoch 060/150 | LR 6.851e-04 | Train Loss 14.3641 MAE 14.851 | Val Loss 23.7257 MAE 24.226 RMSE 27.656 | 4.7s
+[F1 D0.10] Epoch 061/150 | LR 6.750e-04 | Train Loss 13.9394 MAE 14.432 | Val Loss 20.3317 MAE 20.832 RMSE 24.403 | 4.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=20.832)
+[F1 D0.10] Epoch 062/150 | LR 6.648e-04 | Train Loss 13.7676 MAE 14.242 | Val Loss 19.1392 MAE 19.639 RMSE 23.319 | 4.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=19.639)
+[F1 D0.10] Epoch 063/150 | LR 6.545e-04 | Train Loss 13.9354 MAE 14.421 | Val Loss 18.2802 MAE 18.780 RMSE 22.725 | 5.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=18.780)
+[F1 D0.10] Epoch 064/150 | LR 6.442e-04 | Train Loss 13.5685 MAE 14.055 | Val Loss 17.9670 MAE 18.467 RMSE 22.465 | 5.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=18.467)
+[F1 D0.10] Epoch 065/150 | LR 6.338e-04 | Train Loss 13.9063 MAE 14.402 | Val Loss 18.0194 MAE 18.519 RMSE 22.613 | 4.6s
+[F1 D0.10] Epoch 066/150 | LR 6.233e-04 | Train Loss 13.4380 MAE 13.935 | Val Loss 17.9616 MAE 18.462 RMSE 22.554 | 4.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=18.462)
+[F1 D0.10] Epoch 067/150 | LR 6.128e-04 | Train Loss 13.3940 MAE 13.890 | Val Loss 17.9626 MAE 18.463 RMSE 22.421 | 4.5s
+[F1 D0.10] Epoch 068/150 | LR 6.022e-04 | Train Loss 13.5194 MAE 14.010 | Val Loss 18.6942 MAE 19.194 RMSE 22.733 | 5.1s
+[F1 D0.10] Epoch 069/150 | LR 5.916e-04 | Train Loss 13.2296 MAE 13.720 | Val Loss 17.9491 MAE 18.449 RMSE 22.206 | 4.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=18.449)
+[F1 D0.10] Epoch 070/150 | LR 5.809e-04 | Train Loss 13.0169 MAE 13.512 | Val Loss 16.9041 MAE 17.404 RMSE 21.603 | 5.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold1_drop0p1\best_mae.pt (MAE=17.404)
+[F1 D0.10] Epoch 071/150 | LR 5.702e-04 | Train Loss 12.7401 MAE 13.220 | Val Loss 17.2406 MAE 17.741 RMSE 21.654 | 5.0s
+[F1 D0.10] Epoch 072/150 | LR 5.594e-04 | Train Loss 12.6263 MAE 13.121 | Val Loss 17.8174 MAE 18.317 RMSE 21.910 | 4.6s
+[F1 D0.10] Epoch 073/150 | LR 5.487e-04 | Train Loss 13.0061 MAE 13.500 | Val Loss 19.0160 MAE 19.516 RMSE 22.968 | 5.0s
+[F1 D0.10] Epoch 074/150 | LR 5.379e-04 | Train Loss 12.5090 MAE 13.001 | Val Loss 18.7425 MAE 19.243 RMSE 22.688 | 5.3s
+[F1 D0.10] Epoch 075/150 | LR 5.271e-04 | Train Loss 12.5021 MAE 12.999 | Val Loss 19.0764 MAE 19.576 RMSE 23.013 | 5.1s
+[F1 D0.10] Epoch 076/150 | LR 5.162e-04 | Train Loss 12.6001 MAE 13.094 | Val Loss 17.7743 MAE 18.274 RMSE 22.025 | 4.4s
+[F1 D0.10] Epoch 077/150 | LR 5.054e-04 | Train Loss 11.9883 MAE 12.486 | Val Loss 18.2371 MAE 18.737 RMSE 22.497 | 4.4s
+[F1 D0.10] Epoch 078/150 | LR 4.946e-04 | Train Loss 12.4455 MAE 12.934 | Val Loss 17.7179 MAE 18.218 RMSE 22.194 | 5.0s
+[F1 D0.10] Epoch 079/150 | LR 4.838e-04 | Train Loss 11.9539 MAE 12.446 | Val Loss 17.2932 MAE 17.793 RMSE 21.922 | 4.6s
+[F1 D0.10] Epoch 080/150 | LR 4.729e-04 | Train Loss 12.0895 MAE 12.578 | Val Loss 17.4961 MAE 17.996 RMSE 21.977 | 4.4s
+[F1 D0.10] Epoch 081/150 | LR 4.621e-04 | Train Loss 12.3720 MAE 12.864 | Val Loss 18.9851 MAE 19.485 RMSE 22.891 | 4.4s
+[F1 D0.10] Epoch 082/150 | LR 4.513e-04 | Train Loss 11.7247 MAE 12.211 | Val Loss 20.1107 MAE 20.611 RMSE 23.528 | 4.7s
+[F1 D0.10] Epoch 083/150 | LR 4.406e-04 | Train Loss 11.4180 MAE 11.887 | Val Loss 20.5019 MAE 21.002 RMSE 23.927 | 5.1s
+[F1 D0.10] Epoch 084/150 | LR 4.298e-04 | Train Loss 11.6867 MAE 12.175 | Val Loss 19.8204 MAE 20.320 RMSE 22.880 | 4.5s
+[F1 D0.10] Epoch 085/150 | LR 4.191e-04 | Train Loss 11.6270 MAE 12.122 | Val Loss 18.3321 MAE 18.832 RMSE 21.871 | 4.5s
+  -> Early stopping (no improve 15 epochs).
+Best on Fold 1: MAE=17.404 with dropout=0.10
+
+===== Fold 2/5 =====
+
+-- Dropout=0.10 -> out: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1
+[F2 D0.10] Epoch 001/150 | LR 4.000e-04 | Train Loss 36.7702 MAE 37.270 | Val Loss 30.5846 MAE 31.085 RMSE 34.643 | 26.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=31.085)
+[F2 D0.10] Epoch 002/150 | LR 6.000e-04 | Train Loss 36.7062 MAE 37.206 | Val Loss 32.4755 MAE 32.976 RMSE 36.367 | 7.0s
+[F2 D0.10] Epoch 003/150 | LR 8.000e-04 | Train Loss 36.5514 MAE 37.051 | Val Loss 32.2358 MAE 32.736 RMSE 36.160 | 7.1s
+[F2 D0.10] Epoch 004/150 | LR 1.000e-03 | Train Loss 36.2858 MAE 36.786 | Val Loss 31.8568 MAE 32.357 RMSE 35.823 | 7.0s
+[F2 D0.10] Epoch 005/150 | LR 1.000e-03 | Train Loss 35.8984 MAE 36.398 | Val Loss 31.4126 MAE 31.913 RMSE 35.413 | 6.9s
+[F2 D0.10] Epoch 006/150 | LR 9.999e-04 | Train Loss 35.4140 MAE 35.914 | Val Loss 31.0897 MAE 31.590 RMSE 35.122 | 7.0s
+[F2 D0.10] Epoch 007/150 | LR 9.995e-04 | Train Loss 34.9730 MAE 35.473 | Val Loss 30.6480 MAE 31.148 RMSE 34.729 | 7.7s
+[F2 D0.10] Epoch 008/150 | LR 9.989e-04 | Train Loss 34.7110 MAE 35.211 | Val Loss 30.4760 MAE 30.976 RMSE 34.571 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=30.976)
+[F2 D0.10] Epoch 009/150 | LR 9.981e-04 | Train Loss 34.5412 MAE 35.041 | Val Loss 30.2437 MAE 30.744 RMSE 34.362 | 8.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=30.744)
+[F2 D0.10] Epoch 010/150 | LR 9.971e-04 | Train Loss 33.9347 MAE 34.435 | Val Loss 29.7392 MAE 30.239 RMSE 33.906 | 7.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=30.239)
+[F2 D0.10] Epoch 011/150 | LR 9.958e-04 | Train Loss 33.4615 MAE 33.961 | Val Loss 29.1981 MAE 29.698 RMSE 33.418 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=29.698)
+[F2 D0.10] Epoch 012/150 | LR 9.943e-04 | Train Loss 32.9893 MAE 33.489 | Val Loss 28.6161 MAE 29.116 RMSE 32.899 | 8.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=29.116)
+[F2 D0.10] Epoch 013/150 | LR 9.925e-04 | Train Loss 32.4691 MAE 32.969 | Val Loss 28.1186 MAE 28.619 RMSE 32.446 | 7.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=28.619)
+[F2 D0.10] Epoch 014/150 | LR 9.905e-04 | Train Loss 31.9402 MAE 32.440 | Val Loss 27.4806 MAE 27.981 RMSE 31.873 | 7.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=27.981)
+[F2 D0.10] Epoch 015/150 | LR 9.883e-04 | Train Loss 31.4810 MAE 31.981 | Val Loss 26.9371 MAE 27.437 RMSE 31.342 | 7.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=27.437)
+[F2 D0.10] Epoch 016/150 | LR 9.859e-04 | Train Loss 30.9654 MAE 31.465 | Val Loss 26.3398 MAE 26.840 RMSE 30.744 | 7.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=26.840)
+[F2 D0.10] Epoch 017/150 | LR 9.832e-04 | Train Loss 30.4859 MAE 30.986 | Val Loss 26.0705 MAE 26.571 RMSE 30.495 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=26.571)
+[F2 D0.10] Epoch 018/150 | LR 9.803e-04 | Train Loss 29.9721 MAE 30.472 | Val Loss 25.6527 MAE 26.153 RMSE 30.170 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=26.153)
+[F2 D0.10] Epoch 019/150 | LR 9.772e-04 | Train Loss 29.4730 MAE 29.973 | Val Loss 24.9848 MAE 25.485 RMSE 29.549 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=25.485)
+[F2 D0.10] Epoch 020/150 | LR 9.738e-04 | Train Loss 28.9821 MAE 29.480 | Val Loss 24.0572 MAE 24.546 RMSE 28.658 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=24.546)
+[F2 D0.10] Epoch 021/150 | LR 9.703e-04 | Train Loss 28.4221 MAE 28.920 | Val Loss 23.4648 MAE 23.948 RMSE 28.123 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=23.948)
+[F2 D0.10] Epoch 022/150 | LR 9.665e-04 | Train Loss 27.8496 MAE 28.344 | Val Loss 23.0705 MAE 23.563 RMSE 27.769 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=23.563)
+[F2 D0.10] Epoch 023/150 | LR 9.625e-04 | Train Loss 27.3718 MAE 27.869 | Val Loss 22.0843 MAE 22.564 RMSE 26.648 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=22.564)
+[F2 D0.10] Epoch 024/150 | LR 9.582e-04 | Train Loss 26.8144 MAE 27.309 | Val Loss 20.5990 MAE 21.093 RMSE 24.762 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=21.093)
+[F2 D0.10] Epoch 025/150 | LR 9.538e-04 | Train Loss 26.3371 MAE 26.836 | Val Loss 19.7319 MAE 20.232 RMSE 23.736 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=20.232)
+[F2 D0.10] Epoch 026/150 | LR 9.491e-04 | Train Loss 25.8092 MAE 26.306 | Val Loss 21.4371 MAE 21.934 RMSE 25.605 | 8.5s
+[F2 D0.10] Epoch 027/150 | LR 9.443e-04 | Train Loss 25.3566 MAE 25.854 | Val Loss 21.4068 MAE 21.907 RMSE 25.562 | 7.7s
+[F2 D0.10] Epoch 028/150 | LR 9.392e-04 | Train Loss 24.8633 MAE 25.359 | Val Loss 21.0066 MAE 21.507 RMSE 25.058 | 7.4s
+[F2 D0.10] Epoch 029/150 | LR 9.339e-04 | Train Loss 24.4124 MAE 24.910 | Val Loss 19.1399 MAE 19.640 RMSE 22.992 | 8.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=19.640)
+[F2 D0.10] Epoch 030/150 | LR 9.284e-04 | Train Loss 23.9071 MAE 24.405 | Val Loss 19.3060 MAE 19.806 RMSE 23.261 | 8.2s
+[F2 D0.10] Epoch 031/150 | LR 9.227e-04 | Train Loss 23.4601 MAE 23.951 | Val Loss 18.7983 MAE 19.298 RMSE 22.511 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=19.298)
+[F2 D0.10] Epoch 032/150 | LR 9.169e-04 | Train Loss 23.0969 MAE 23.584 | Val Loss 19.0896 MAE 19.590 RMSE 23.023 | 8.6s
+[F2 D0.10] Epoch 033/150 | LR 9.108e-04 | Train Loss 22.7086 MAE 23.208 | Val Loss 20.1445 MAE 20.639 RMSE 24.643 | 7.1s
+[F2 D0.10] Epoch 034/150 | LR 9.045e-04 | Train Loss 22.3229 MAE 22.814 | Val Loss 19.4627 MAE 19.963 RMSE 23.809 | 7.1s
+[F2 D0.10] Epoch 035/150 | LR 8.980e-04 | Train Loss 21.8133 MAE 22.308 | Val Loss 18.1980 MAE 18.698 RMSE 22.742 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=18.698)
+[F2 D0.10] Epoch 036/150 | LR 8.914e-04 | Train Loss 21.4477 MAE 21.946 | Val Loss 19.0812 MAE 19.581 RMSE 23.719 | 7.2s
+[F2 D0.10] Epoch 037/150 | LR 8.846e-04 | Train Loss 21.1794 MAE 21.674 | Val Loss 18.7390 MAE 19.239 RMSE 23.055 | 7.1s
+[F2 D0.10] Epoch 038/150 | LR 8.776e-04 | Train Loss 20.7930 MAE 21.288 | Val Loss 18.5101 MAE 19.010 RMSE 22.902 | 7.0s
+[F2 D0.10] Epoch 039/150 | LR 8.704e-04 | Train Loss 20.4956 MAE 20.990 | Val Loss 18.3340 MAE 18.834 RMSE 22.758 | 7.6s
+[F2 D0.10] Epoch 040/150 | LR 8.630e-04 | Train Loss 21.0298 MAE 21.529 | Val Loss 18.2627 MAE 18.763 RMSE 22.607 | 7.2s
+[F2 D0.10] Epoch 041/150 | LR 8.555e-04 | Train Loss 20.9080 MAE 21.405 | Val Loss 17.9737 MAE 18.460 RMSE 22.464 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=18.460)
+[F2 D0.10] Epoch 042/150 | LR 8.478e-04 | Train Loss 19.5152 MAE 20.009 | Val Loss 19.5593 MAE 20.053 RMSE 24.765 | 7.1s
+[F2 D0.10] Epoch 043/150 | LR 8.399e-04 | Train Loss 19.3715 MAE 19.871 | Val Loss 15.1946 MAE 15.695 RMSE 18.890 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=15.695)
+[F2 D0.10] Epoch 044/150 | LR 8.319e-04 | Train Loss 19.1676 MAE 19.664 | Val Loss 13.2549 MAE 13.725 RMSE 16.505 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=13.725)
+[F2 D0.10] Epoch 045/150 | LR 8.237e-04 | Train Loss 18.6405 MAE 19.136 | Val Loss 14.5292 MAE 15.029 RMSE 17.934 | 6.9s
+[F2 D0.10] Epoch 046/150 | LR 8.154e-04 | Train Loss 18.0801 MAE 18.574 | Val Loss 14.8099 MAE 15.310 RMSE 18.344 | 7.0s
+[F2 D0.10] Epoch 047/150 | LR 8.069e-04 | Train Loss 17.5440 MAE 18.039 | Val Loss 15.5747 MAE 16.075 RMSE 19.195 | 6.9s
+[F2 D0.10] Epoch 048/150 | LR 7.983e-04 | Train Loss 17.1109 MAE 17.604 | Val Loss 14.5083 MAE 15.008 RMSE 18.349 | 7.1s
+[F2 D0.10] Epoch 049/150 | LR 7.895e-04 | Train Loss 16.7742 MAE 17.274 | Val Loss 13.9178 MAE 14.417 RMSE 18.315 | 6.9s
+[F2 D0.10] Epoch 050/150 | LR 7.806e-04 | Train Loss 16.7069 MAE 17.207 | Val Loss 15.2039 MAE 15.696 RMSE 19.676 | 7.0s
+[F2 D0.10] Epoch 051/150 | LR 7.716e-04 | Train Loss 16.3562 MAE 16.841 | Val Loss 15.2682 MAE 15.768 RMSE 19.035 | 7.0s
+[F2 D0.10] Epoch 052/150 | LR 7.624e-04 | Train Loss 16.1932 MAE 16.686 | Val Loss 15.5343 MAE 16.034 RMSE 19.549 | 7.0s
+[F2 D0.10] Epoch 053/150 | LR 7.531e-04 | Train Loss 15.6210 MAE 16.117 | Val Loss 15.2594 MAE 15.759 RMSE 19.329 | 7.0s
+[F2 D0.10] Epoch 054/150 | LR 7.437e-04 | Train Loss 15.0043 MAE 15.503 | Val Loss 16.6799 MAE 17.180 RMSE 21.005 | 7.0s
+[F2 D0.10] Epoch 055/150 | LR 7.342e-04 | Train Loss 14.5897 MAE 15.082 | Val Loss 13.6244 MAE 14.121 RMSE 18.084 | 7.0s
+[F2 D0.10] Epoch 056/150 | LR 7.246e-04 | Train Loss 14.1595 MAE 14.658 | Val Loss 14.6431 MAE 15.143 RMSE 18.601 | 7.5s
+[F2 D0.10] Epoch 057/150 | LR 7.148e-04 | Train Loss 14.1753 MAE 14.675 | Val Loss 12.8185 MAE 13.319 RMSE 17.045 | 8.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=13.319)
+[F2 D0.10] Epoch 058/150 | LR 7.050e-04 | Train Loss 13.7811 MAE 14.266 | Val Loss 11.7854 MAE 12.285 RMSE 15.566 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=12.285)
+[F2 D0.10] Epoch 059/150 | LR 6.951e-04 | Train Loss 13.2221 MAE 13.709 | Val Loss 12.6010 MAE 13.101 RMSE 16.319 | 7.0s
+[F2 D0.10] Epoch 060/150 | LR 6.851e-04 | Train Loss 13.0937 MAE 13.578 | Val Loss 13.0372 MAE 13.533 RMSE 16.640 | 7.4s
+[F2 D0.10] Epoch 061/150 | LR 6.750e-04 | Train Loss 12.9413 MAE 13.429 | Val Loss 13.1562 MAE 13.656 RMSE 16.686 | 7.1s
+[F2 D0.10] Epoch 062/150 | LR 6.648e-04 | Train Loss 12.7087 MAE 13.187 | Val Loss 11.3339 MAE 11.834 RMSE 14.911 | 7.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=11.834)
+[F2 D0.10] Epoch 063/150 | LR 6.545e-04 | Train Loss 12.2308 MAE 12.716 | Val Loss 10.6863 MAE 11.185 RMSE 13.899 | 7.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=11.185)
+[F2 D0.10] Epoch 064/150 | LR 6.442e-04 | Train Loss 12.6000 MAE 13.088 | Val Loss 13.3927 MAE 13.893 RMSE 17.397 | 7.3s
+[F2 D0.10] Epoch 065/150 | LR 6.338e-04 | Train Loss 12.4397 MAE 12.932 | Val Loss 11.9552 MAE 12.438 RMSE 16.651 | 7.6s
+[F2 D0.10] Epoch 066/150 | LR 6.233e-04 | Train Loss 12.1694 MAE 12.661 | Val Loss 10.6388 MAE 11.132 RMSE 13.716 | 7.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=11.132)
+[F2 D0.10] Epoch 067/150 | LR 6.128e-04 | Train Loss 11.9140 MAE 12.403 | Val Loss 10.5228 MAE 11.012 RMSE 13.471 | 7.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=11.012)
+[F2 D0.10] Epoch 068/150 | LR 6.022e-04 | Train Loss 11.5400 MAE 12.029 | Val Loss 10.4735 MAE 10.970 RMSE 13.136 | 7.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=10.970)
+[F2 D0.10] Epoch 069/150 | LR 5.916e-04 | Train Loss 11.1166 MAE 11.612 | Val Loss 9.9144 MAE 10.380 RMSE 12.539 | 7.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=10.380)
+[F2 D0.10] Epoch 070/150 | LR 5.809e-04 | Train Loss 10.8820 MAE 11.366 | Val Loss 10.5734 MAE 11.059 RMSE 13.586 | 7.5s
+[F2 D0.10] Epoch 071/150 | LR 5.702e-04 | Train Loss 11.2232 MAE 11.717 | Val Loss 10.2987 MAE 10.787 RMSE 13.110 | 7.4s
+[F2 D0.10] Epoch 072/150 | LR 5.594e-04 | Train Loss 11.7233 MAE 12.219 | Val Loss 11.0061 MAE 11.506 RMSE 13.758 | 7.4s
+[F2 D0.10] Epoch 073/150 | LR 5.487e-04 | Train Loss 10.7540 MAE 11.241 | Val Loss 10.5883 MAE 11.088 RMSE 13.314 | 7.2s
+[F2 D0.10] Epoch 074/150 | LR 5.379e-04 | Train Loss 10.4234 MAE 10.901 | Val Loss 10.3611 MAE 10.853 RMSE 13.381 | 7.4s
+[F2 D0.10] Epoch 075/150 | LR 5.271e-04 | Train Loss 10.1551 MAE 10.650 | Val Loss 10.9148 MAE 11.415 RMSE 13.657 | 7.5s
+[F2 D0.10] Epoch 076/150 | LR 5.162e-04 | Train Loss 10.1856 MAE 10.675 | Val Loss 10.2173 MAE 10.717 RMSE 13.057 | 7.6s
+[F2 D0.10] Epoch 077/150 | LR 5.054e-04 | Train Loss 10.2754 MAE 10.765 | Val Loss 10.3076 MAE 10.789 RMSE 14.591 | 8.3s
+[F2 D0.10] Epoch 078/150 | LR 4.946e-04 | Train Loss 10.0441 MAE 10.533 | Val Loss 10.7430 MAE 11.220 RMSE 14.551 | 8.2s
+[F2 D0.10] Epoch 079/150 | LR 4.838e-04 | Train Loss 9.8966 MAE 10.385 | Val Loss 10.2076 MAE 10.707 RMSE 13.388 | 7.1s
+[F2 D0.10] Epoch 080/150 | LR 4.729e-04 | Train Loss 9.8965 MAE 10.375 | Val Loss 10.3443 MAE 10.823 RMSE 13.952 | 6.8s
+[F2 D0.10] Epoch 081/150 | LR 4.621e-04 | Train Loss 9.9956 MAE 10.489 | Val Loss 9.6418 MAE 10.142 RMSE 12.801 | 6.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=10.142)
+[F2 D0.10] Epoch 082/150 | LR 4.513e-04 | Train Loss 9.1956 MAE 9.688 | Val Loss 10.1546 MAE 10.650 RMSE 13.605 | 6.7s
+[F2 D0.10] Epoch 083/150 | LR 4.406e-04 | Train Loss 10.0845 MAE 10.577 | Val Loss 9.6689 MAE 10.140 RMSE 13.594 | 6.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=10.140)
+[F2 D0.10] Epoch 084/150 | LR 4.298e-04 | Train Loss 9.3168 MAE 9.790 | Val Loss 10.6994 MAE 11.180 RMSE 14.205 | 6.9s
+[F2 D0.10] Epoch 085/150 | LR 4.191e-04 | Train Loss 8.7742 MAE 9.258 | Val Loss 11.0630 MAE 11.563 RMSE 14.830 | 6.8s
+[F2 D0.10] Epoch 086/150 | LR 4.084e-04 | Train Loss 8.5853 MAE 9.076 | Val Loss 10.2921 MAE 10.790 RMSE 14.669 | 6.8s
+[F2 D0.10] Epoch 087/150 | LR 3.978e-04 | Train Loss 8.5575 MAE 9.033 | Val Loss 11.2081 MAE 11.706 RMSE 15.873 | 6.9s
+[F2 D0.10] Epoch 088/150 | LR 3.872e-04 | Train Loss 8.7927 MAE 9.288 | Val Loss 12.1126 MAE 12.588 RMSE 15.987 | 7.1s
+[F2 D0.10] Epoch 089/150 | LR 3.767e-04 | Train Loss 8.8285 MAE 9.321 | Val Loss 9.2034 MAE 9.703 RMSE 11.773 | 6.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=9.703)
+[F2 D0.10] Epoch 090/150 | LR 3.662e-04 | Train Loss 7.8546 MAE 8.329 | Val Loss 9.1231 MAE 9.622 RMSE 11.756 | 6.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold2_drop0p1\best_mae.pt (MAE=9.622)
+[F2 D0.10] Epoch 091/150 | LR 3.558e-04 | Train Loss 8.0772 MAE 8.557 | Val Loss 9.6714 MAE 10.170 RMSE 12.179 | 7.4s
+[F2 D0.10] Epoch 092/150 | LR 3.455e-04 | Train Loss 8.2409 MAE 8.725 | Val Loss 10.2823 MAE 10.782 RMSE 12.796 | 7.2s
+[F2 D0.10] Epoch 093/150 | LR 3.352e-04 | Train Loss 8.3648 MAE 8.837 | Val Loss 11.0310 MAE 11.531 RMSE 13.827 | 6.9s
+[F2 D0.10] Epoch 094/150 | LR 3.250e-04 | Train Loss 7.6108 MAE 8.082 | Val Loss 10.6910 MAE 11.178 RMSE 13.662 | 6.8s
+[F2 D0.10] Epoch 095/150 | LR 3.149e-04 | Train Loss 7.6211 MAE 8.116 | Val Loss 10.6176 MAE 11.117 RMSE 13.370 | 7.4s
+[F2 D0.10] Epoch 096/150 | LR 3.049e-04 | Train Loss 7.9473 MAE 8.431 | Val Loss 10.4323 MAE 10.932 RMSE 13.591 | 7.4s
+[F2 D0.10] Epoch 097/150 | LR 2.950e-04 | Train Loss 7.8082 MAE 8.276 | Val Loss 10.2192 MAE 10.719 RMSE 13.391 | 7.0s
+[F2 D0.10] Epoch 098/150 | LR 2.852e-04 | Train Loss 7.8497 MAE 8.329 | Val Loss 10.2173 MAE 10.717 RMSE 13.183 | 6.8s
+[F2 D0.10] Epoch 099/150 | LR 2.754e-04 | Train Loss 7.4427 MAE 7.907 | Val Loss 10.0687 MAE 10.568 RMSE 12.846 | 6.9s
+[F2 D0.10] Epoch 100/150 | LR 2.658e-04 | Train Loss 7.6330 MAE 8.122 | Val Loss 9.4316 MAE 9.920 RMSE 11.981 | 6.8s
+[F2 D0.10] Epoch 101/150 | LR 2.563e-04 | Train Loss 7.0628 MAE 7.548 | Val Loss 10.1042 MAE 10.564 RMSE 12.317 | 6.9s
+[F2 D0.10] Epoch 102/150 | LR 2.469e-04 | Train Loss 7.0357 MAE 7.498 | Val Loss 10.0477 MAE 10.547 RMSE 12.342 | 7.2s
+[F2 D0.10] Epoch 103/150 | LR 2.376e-04 | Train Loss 7.2648 MAE 7.754 | Val Loss 9.7597 MAE 10.242 RMSE 12.111 | 7.2s
+[F2 D0.10] Epoch 104/150 | LR 2.284e-04 | Train Loss 6.8906 MAE 7.377 | Val Loss 9.5358 MAE 10.023 RMSE 12.141 | 7.0s
+[F2 D0.10] Epoch 105/150 | LR 2.194e-04 | Train Loss 6.8536 MAE 7.323 | Val Loss 9.2478 MAE 9.732 RMSE 12.391 | 7.4s
+  -> Early stopping (no improve 15 epochs).
+Best on Fold 2: MAE=9.622 with dropout=0.10
+
+===== Fold 3/5 =====
+
+-- Dropout=0.10 -> out: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1
+[F3 D0.10] Epoch 001/150 | LR 4.000e-04 | Train Loss 35.9942 MAE 36.494 | Val Loss 32.9663 MAE 33.466 RMSE 36.879 | 21.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=33.466)
+[F3 D0.10] Epoch 002/150 | LR 6.000e-04 | Train Loss 35.9490 MAE 36.449 | Val Loss 35.4516 MAE 35.952 RMSE 39.203 | 5.6s
+[F3 D0.10] Epoch 003/150 | LR 8.000e-04 | Train Loss 35.8394 MAE 36.339 | Val Loss 35.4074 MAE 35.907 RMSE 39.117 | 5.6s
+[F3 D0.10] Epoch 004/150 | LR 1.000e-03 | Train Loss 35.6264 MAE 36.126 | Val Loss 35.1290 MAE 35.629 RMSE 38.862 | 5.8s
+[F3 D0.10] Epoch 005/150 | LR 1.000e-03 | Train Loss 35.2871 MAE 35.787 | Val Loss 34.7032 MAE 35.203 RMSE 38.473 | 5.6s
+[F3 D0.10] Epoch 006/150 | LR 9.999e-04 | Train Loss 34.8572 MAE 35.357 | Val Loss 34.2327 MAE 34.733 RMSE 38.034 | 5.6s
+[F3 D0.10] Epoch 007/150 | LR 9.995e-04 | Train Loss 34.3695 MAE 34.870 | Val Loss 33.9010 MAE 34.401 RMSE 37.753 | 5.6s
+[F3 D0.10] Epoch 008/150 | LR 9.989e-04 | Train Loss 34.0113 MAE 34.511 | Val Loss 33.2724 MAE 33.772 RMSE 37.154 | 5.6s
+[F3 D0.10] Epoch 009/150 | LR 9.981e-04 | Train Loss 33.5075 MAE 34.007 | Val Loss 32.8464 MAE 33.346 RMSE 36.769 | 5.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=33.346)
+[F3 D0.10] Epoch 010/150 | LR 9.971e-04 | Train Loss 33.3333 MAE 33.833 | Val Loss 32.7250 MAE 33.225 RMSE 36.661 | 5.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=33.225)
+[F3 D0.10] Epoch 011/150 | LR 9.958e-04 | Train Loss 32.7070 MAE 33.207 | Val Loss 32.1571 MAE 32.657 RMSE 36.143 | 5.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=32.657)
+[F3 D0.10] Epoch 012/150 | LR 9.943e-04 | Train Loss 32.2172 MAE 32.717 | Val Loss 31.7944 MAE 32.294 RMSE 35.813 | 5.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=32.294)
+[F3 D0.10] Epoch 013/150 | LR 9.925e-04 | Train Loss 32.1430 MAE 32.643 | Val Loss 31.3916 MAE 31.892 RMSE 35.435 | 5.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=31.892)
+[F3 D0.10] Epoch 014/150 | LR 9.905e-04 | Train Loss 31.5826 MAE 32.083 | Val Loss 30.8957 MAE 31.396 RMSE 34.976 | 5.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=31.396)
+[F3 D0.10] Epoch 015/150 | LR 9.883e-04 | Train Loss 31.0504 MAE 31.550 | Val Loss 31.1538 MAE 31.654 RMSE 35.332 | 5.8s
+[F3 D0.10] Epoch 016/150 | LR 9.859e-04 | Train Loss 30.6045 MAE 31.104 | Val Loss 30.1687 MAE 30.669 RMSE 34.442 | 5.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=30.669)
+[F3 D0.10] Epoch 017/150 | LR 9.832e-04 | Train Loss 30.1326 MAE 30.633 | Val Loss 29.4112 MAE 29.911 RMSE 33.683 | 5.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=29.911)
+[F3 D0.10] Epoch 018/150 | LR 9.803e-04 | Train Loss 29.6597 MAE 30.160 | Val Loss 29.1736 MAE 29.674 RMSE 33.312 | 5.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=29.674)
+[F3 D0.10] Epoch 019/150 | LR 9.772e-04 | Train Loss 29.1331 MAE 29.633 | Val Loss 28.3190 MAE 28.819 RMSE 32.413 | 6.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=28.819)
+[F3 D0.10] Epoch 020/150 | LR 9.738e-04 | Train Loss 28.5975 MAE 29.097 | Val Loss 27.2464 MAE 27.746 RMSE 31.435 | 6.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=27.746)
+[F3 D0.10] Epoch 021/150 | LR 9.703e-04 | Train Loss 28.0464 MAE 28.542 | Val Loss 25.7768 MAE 26.277 RMSE 30.041 | 6.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=26.277)
+[F3 D0.10] Epoch 022/150 | LR 9.665e-04 | Train Loss 27.5156 MAE 28.011 | Val Loss 26.3241 MAE 26.824 RMSE 30.542 | 5.8s
+[F3 D0.10] Epoch 023/150 | LR 9.625e-04 | Train Loss 27.3826 MAE 27.878 | Val Loss 25.8157 MAE 26.316 RMSE 30.112 | 6.2s
+[F3 D0.10] Epoch 024/150 | LR 9.582e-04 | Train Loss 26.6103 MAE 27.103 | Val Loss 26.2323 MAE 26.732 RMSE 30.574 | 6.4s
+[F3 D0.10] Epoch 025/150 | LR 9.538e-04 | Train Loss 26.2064 MAE 26.697 | Val Loss 24.9216 MAE 25.422 RMSE 29.486 | 6.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=25.422)
+[F3 D0.10] Epoch 026/150 | LR 9.491e-04 | Train Loss 25.6494 MAE 26.141 | Val Loss 25.8494 MAE 26.338 RMSE 29.995 | 5.9s
+[F3 D0.10] Epoch 027/150 | LR 9.443e-04 | Train Loss 25.1654 MAE 25.662 | Val Loss 24.5061 MAE 25.006 RMSE 28.682 | 5.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=25.006)
+[F3 D0.10] Epoch 028/150 | LR 9.392e-04 | Train Loss 24.6257 MAE 25.123 | Val Loss 23.8546 MAE 24.355 RMSE 28.349 | 6.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=24.355)
+[F3 D0.10] Epoch 029/150 | LR 9.339e-04 | Train Loss 24.1103 MAE 24.597 | Val Loss 23.0193 MAE 23.519 RMSE 27.146 | 6.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=23.519)
+[F3 D0.10] Epoch 030/150 | LR 9.284e-04 | Train Loss 23.6942 MAE 24.191 | Val Loss 20.7084 MAE 21.208 RMSE 24.726 | 6.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=21.208)
+[F3 D0.10] Epoch 031/150 | LR 9.227e-04 | Train Loss 23.1116 MAE 23.598 | Val Loss 22.8874 MAE 23.387 RMSE 26.900 | 6.8s
+[F3 D0.10] Epoch 032/150 | LR 9.169e-04 | Train Loss 22.5785 MAE 23.068 | Val Loss 24.9702 MAE 25.470 RMSE 29.394 | 6.8s
+[F3 D0.10] Epoch 033/150 | LR 9.108e-04 | Train Loss 22.0926 MAE 22.571 | Val Loss 22.5042 MAE 23.004 RMSE 26.909 | 6.2s
+[F3 D0.10] Epoch 034/150 | LR 9.045e-04 | Train Loss 21.5276 MAE 22.015 | Val Loss 23.8847 MAE 24.385 RMSE 27.772 | 6.0s
+[F3 D0.10] Epoch 035/150 | LR 8.980e-04 | Train Loss 22.6551 MAE 23.141 | Val Loss 23.0886 MAE 23.589 RMSE 26.627 | 5.8s
+[F3 D0.10] Epoch 036/150 | LR 8.914e-04 | Train Loss 20.8480 MAE 21.346 | Val Loss 20.5395 MAE 21.040 RMSE 24.388 | 6.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=21.040)
+[F3 D0.10] Epoch 037/150 | LR 8.846e-04 | Train Loss 20.2760 MAE 20.767 | Val Loss 18.4267 MAE 18.922 RMSE 22.958 | 7.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=18.922)
+[F3 D0.10] Epoch 038/150 | LR 8.776e-04 | Train Loss 19.9556 MAE 20.445 | Val Loss 17.6011 MAE 18.101 RMSE 23.057 | 6.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=18.101)
+[F3 D0.10] Epoch 039/150 | LR 8.704e-04 | Train Loss 19.3869 MAE 19.875 | Val Loss 19.3947 MAE 19.894 RMSE 23.686 | 5.7s
+[F3 D0.10] Epoch 040/150 | LR 8.630e-04 | Train Loss 18.8407 MAE 19.337 | Val Loss 20.5798 MAE 21.080 RMSE 25.002 | 5.9s
+[F3 D0.10] Epoch 041/150 | LR 8.555e-04 | Train Loss 18.5864 MAE 19.084 | Val Loss 20.1207 MAE 20.621 RMSE 25.210 | 6.0s
+[F3 D0.10] Epoch 042/150 | LR 8.478e-04 | Train Loss 18.8728 MAE 19.367 | Val Loss 22.3226 MAE 22.823 RMSE 27.162 | 5.9s
+[F3 D0.10] Epoch 043/150 | LR 8.399e-04 | Train Loss 17.8882 MAE 18.388 | Val Loss 21.0214 MAE 21.521 RMSE 25.450 | 6.0s
+[F3 D0.10] Epoch 044/150 | LR 8.319e-04 | Train Loss 17.4317 MAE 17.932 | Val Loss 20.3936 MAE 20.894 RMSE 24.758 | 6.4s
+[F3 D0.10] Epoch 045/150 | LR 8.237e-04 | Train Loss 17.3099 MAE 17.802 | Val Loss 17.2971 MAE 17.793 RMSE 22.112 | 7.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=17.793)
+[F3 D0.10] Epoch 046/150 | LR 8.154e-04 | Train Loss 16.9305 MAE 17.430 | Val Loss 20.9191 MAE 21.419 RMSE 25.442 | 7.9s
+[F3 D0.10] Epoch 047/150 | LR 8.069e-04 | Train Loss 16.6767 MAE 17.172 | Val Loss 18.6732 MAE 19.152 RMSE 23.254 | 8.0s
+[F3 D0.10] Epoch 048/150 | LR 7.983e-04 | Train Loss 15.9544 MAE 16.442 | Val Loss 14.1226 MAE 14.623 RMSE 17.780 | 7.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold3_drop0p1\best_mae.pt (MAE=14.623)
+[F3 D0.10] Epoch 049/150 | LR 7.895e-04 | Train Loss 16.7079 MAE 17.201 | Val Loss 15.4948 MAE 15.977 RMSE 19.089 | 8.0s
+[F3 D0.10] Epoch 050/150 | LR 7.806e-04 | Train Loss 15.3824 MAE 15.867 | Val Loss 18.5864 MAE 19.086 RMSE 23.230 | 7.4s
+[F3 D0.10] Epoch 051/150 | LR 7.716e-04 | Train Loss 15.1607 MAE 15.645 | Val Loss 17.8583 MAE 18.358 RMSE 22.898 | 7.8s
+[F3 D0.10] Epoch 052/150 | LR 7.624e-04 | Train Loss 15.1734 MAE 15.668 | Val Loss 16.4603 MAE 16.937 RMSE 21.226 | 6.1s
+[F3 D0.10] Epoch 053/150 | LR 7.531e-04 | Train Loss 14.6369 MAE 15.128 | Val Loss 19.2322 MAE 19.732 RMSE 22.885 | 7.4s
+[F3 D0.10] Epoch 054/150 | LR 7.437e-04 | Train Loss 15.1130 MAE 15.610 | Val Loss 21.2543 MAE 21.745 RMSE 26.106 | 7.5s
+[F3 D0.10] Epoch 055/150 | LR 7.342e-04 | Train Loss 14.5253 MAE 15.021 | Val Loss 21.3905 MAE 21.891 RMSE 25.807 | 6.2s
+[F3 D0.10] Epoch 056/150 | LR 7.246e-04 | Train Loss 14.1089 MAE 14.609 | Val Loss 21.3357 MAE 21.820 RMSE 25.973 | 6.0s
+[F3 D0.10] Epoch 057/150 | LR 7.148e-04 | Train Loss 13.6369 MAE 14.129 | Val Loss 16.1530 MAE 16.653 RMSE 20.360 | 6.0s
+[F3 D0.10] Epoch 058/150 | LR 7.050e-04 | Train Loss 13.4210 MAE 13.907 | Val Loss 15.5280 MAE 16.028 RMSE 19.289 | 5.9s
+[F3 D0.10] Epoch 059/150 | LR 6.951e-04 | Train Loss 13.3826 MAE 13.882 | Val Loss 14.2350 MAE 14.733 RMSE 17.322 | 6.5s
+[F3 D0.10] Epoch 060/150 | LR 6.851e-04 | Train Loss 13.3030 MAE 13.791 | Val Loss 14.9914 MAE 15.491 RMSE 18.706 | 6.3s
+[F3 D0.10] Epoch 061/150 | LR 6.750e-04 | Train Loss 12.9326 MAE 13.430 | Val Loss 14.6481 MAE 15.145 RMSE 18.999 | 6.1s
+[F3 D0.10] Epoch 062/150 | LR 6.648e-04 | Train Loss 13.0750 MAE 13.566 | Val Loss 14.8797 MAE 15.380 RMSE 19.346 | 6.6s
+[F3 D0.10] Epoch 063/150 | LR 6.545e-04 | Train Loss 12.7350 MAE 13.224 | Val Loss 15.4510 MAE 15.947 RMSE 19.437 | 5.7s
+  -> Early stopping (no improve 15 epochs).
+Best on Fold 3: MAE=14.623 with dropout=0.10
+
+===== Fold 4/5 =====
+
+-- Dropout=0.10 -> out: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1
+[F4 D0.10] Epoch 001/150 | LR 4.000e-04 | Train Loss 35.5408 MAE 36.041 | Val Loss 38.5757 MAE 39.076 RMSE 42.045 | 23.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=39.076)
+[F4 D0.10] Epoch 002/150 | LR 6.000e-04 | Train Loss 35.4618 MAE 35.962 | Val Loss 37.9994 MAE 38.499 RMSE 41.440 | 6.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=38.499)
+[F4 D0.10] Epoch 003/150 | LR 8.000e-04 | Train Loss 35.2744 MAE 35.774 | Val Loss 37.1367 MAE 37.637 RMSE 40.655 | 6.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=37.637)
+[F4 D0.10] Epoch 004/150 | LR 1.000e-03 | Train Loss 34.9676 MAE 35.468 | Val Loss 36.6932 MAE 37.193 RMSE 40.259 | 6.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=37.193)
+[F4 D0.10] Epoch 005/150 | LR 1.000e-03 | Train Loss 34.5522 MAE 35.052 | Val Loss 36.2693 MAE 36.769 RMSE 39.871 | 6.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=36.769)
+[F4 D0.10] Epoch 006/150 | LR 9.999e-04 | Train Loss 34.0598 MAE 34.560 | Val Loss 35.7535 MAE 36.254 RMSE 39.396 | 6.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=36.254)
+[F4 D0.10] Epoch 007/150 | LR 9.995e-04 | Train Loss 33.5214 MAE 34.021 | Val Loss 35.1463 MAE 35.646 RMSE 38.839 | 6.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=35.646)
+[F4 D0.10] Epoch 008/150 | LR 9.989e-04 | Train Loss 33.0284 MAE 33.528 | Val Loss 34.6566 MAE 35.157 RMSE 38.388 | 7.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=35.157)
+[F4 D0.10] Epoch 009/150 | LR 9.981e-04 | Train Loss 32.6021 MAE 33.102 | Val Loss 34.5624 MAE 35.062 RMSE 38.188 | 6.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=35.062)
+[F4 D0.10] Epoch 010/150 | LR 9.971e-04 | Train Loss 32.1077 MAE 32.608 | Val Loss 33.7086 MAE 34.209 RMSE 37.490 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=34.209)
+[F4 D0.10] Epoch 011/150 | LR 9.958e-04 | Train Loss 31.6534 MAE 32.153 | Val Loss 33.4196 MAE 33.920 RMSE 37.246 | 7.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=33.920)
+[F4 D0.10] Epoch 012/150 | LR 9.943e-04 | Train Loss 31.2187 MAE 31.719 | Val Loss 33.0032 MAE 33.503 RMSE 36.828 | 6.7s
+[F4 D0.10] Epoch 017/150 | LR 9.832e-04 | Train Loss 28.6639 MAE 29.164 | Val Loss 31.4170 MAE 31.917 RMSE 35.271 | 6.6s
+Val Loss 28.5889 MAE 29.088 RMSE 32.846 | 8.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=29.088)
+[F4 D0.10] Epoch 022/150 | LR 9.665e-04 | Train Loss 26.2299 MAE 26.724 | Val Loss 27.8472 MAE 28.347 RMSE 32.116 | 7.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=28.347)
+[F4 D0.10] Epoch 023/150 | LR 9.625e-04 | Train Loss 25.7330 MAE 26.232 | Val Loss 27.3050 MAE 27.805 RMSE 31.593 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=27.805)
+[F4 D0.10] Epoch 024/150 | LR 9.582e-04 | Train Loss 25.2241 MAE 25.724 | Val Loss 26.9680 MAE 27.468 RMSE 31.251 | 7.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=27.468)
+[F4 D0.10] Epoch 025/150 | LR 9.538e-04 | Train Loss 24.7047 MAE 25.205 | Val Loss 26.5604 MAE 27.060 RMSE 30.861 | 8.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=27.060)
+[F4 D0.10] Epoch 026/150 | LR 9.491e-04 | Train Loss 24.2828 MAE 24.783 | Val Loss 26.1383 MAE 26.638 RMSE 30.455 | 7.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=26.638)
+[F4 D0.10] Epoch 027/150 | LR 9.443e-04 | Train Loss 23.7783 MAE 24.277 | Val Loss 25.6554 MAE 26.155 RMSE 29.980 | 6.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=26.155)
+[F4 D0.10] Epoch 028/150 | LR 9.392e-04 | Train Loss 23.2815 MAE 23.773 | Val Loss 25.0796 MAE 25.580 RMSE 29.428 | 7.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=25.580)
+[F4 D0.10] Epoch 029/150 | LR 9.339e-04 | Train Loss 22.8147 MAE 23.311 | Val Loss 24.4719 MAE 24.972 RMSE 28.870 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=24.972)
+[F4 D0.10] Epoch 030/150 | LR 9.284e-04 | Train Loss 22.3193 MAE 22.814 | Val Loss 23.8936 MAE 24.394 RMSE 28.299 | 6.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=24.394)
+[F4 D0.10] Epoch 031/150 | LR 9.227e-04 | Train Loss 21.8701 MAE 22.367 | Val Loss 23.5849 MAE 24.085 RMSE 27.967 | 6.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=24.085)
+[F4 D0.10] Epoch 032/150 | LR 9.169e-04 | Train Loss 21.3675 MAE 21.866 | Val Loss 23.8657 MAE 24.366 RMSE 28.081 | 6.8s
+[F4 D0.10] Epoch 033/150 | LR 9.108e-04 | Train Loss 21.1626 MAE 21.663 | Val Loss 23.4154 MAE 23.915 RMSE 27.722 | 6.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=23.915)
+[F4 D0.10] Epoch 034/150 | LR 9.045e-04 | Train Loss 20.5025 MAE 21.003 | Val Loss 22.3740 MAE 22.874 RMSE 26.750 | 6.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=22.874)
+[F4 D0.10] Epoch 035/150 | LR 8.980e-04 | Train Loss 20.3259 MAE 20.816 | Val Loss 22.4481 MAE 22.948 RMSE 27.007 | 9.1s
+[F4 D0.10] Epoch 036/150 | LR 8.914e-04 | Train Loss 24.4869 MAE 24.987 | Val Loss 24.8365 MAE 25.336 RMSE 29.389 | 9.2s
+[F4 D0.10] Epoch 037/150 | LR 8.846e-04 | Train Loss 24.1594 MAE 24.655 | Val Loss 24.3675 MAE 24.868 RMSE 28.911 | 8.3s
+[F4 D0.10] Epoch 038/150 | LR 8.776e-04 | Train Loss 19.5990 MAE 20.092 | Val Loss 22.7875 MAE 23.287 RMSE 27.256 | 8.4s
+[F4 D0.10] Epoch 039/150 | LR 8.704e-04 | Train Loss 19.2557 MAE 19.752 | Val Loss 22.6534 MAE 23.153 RMSE 27.039 | 8.5s
+[F4 D0.10] Epoch 040/150 | LR 8.630e-04 | Train Loss 18.9172 MAE 19.415 | Val Loss 22.0545 MAE 22.554 RMSE 26.407 | 8.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=22.554)
+[F4 D0.10] Epoch 041/150 | LR 8.555e-04 | Train Loss 18.5646 MAE 19.064 | Val Loss 20.6789 MAE 21.179 RMSE 25.169 | 8.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=21.179)
+[F4 D0.10] Epoch 042/150 | LR 8.478e-04 | Train Loss 18.1526 MAE 18.653 | Val Loss 20.0813 MAE 20.558 RMSE 24.484 | 8.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=20.558)
+[F4 D0.10] Epoch 043/150 | LR 8.399e-04 | Train Loss 17.8289 MAE 18.326 | Val Loss 19.1554 MAE 19.649 RMSE 23.808 | 8.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=19.649)
+[F4 D0.10] Epoch 044/150 | LR 8.319e-04 | Train Loss 17.6242 MAE 18.122 | Val Loss 19.0078 MAE 19.508 RMSE 23.523 | 8.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=19.508)
+[F4 D0.10] Epoch 045/150 | LR 8.237e-04 | Train Loss 17.2166 MAE 17.717 | Val Loss 18.7044 MAE 19.191 RMSE 23.368 | 10.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=19.191)
+[F4 D0.10] Epoch 046/150 | LR 8.154e-04 | Train Loss 17.0020 MAE 17.502 | Val Loss 20.1521 MAE 20.652 RMSE 24.224 | 10.8s
+[F4 D0.10] Epoch 047/150 | LR 8.069e-04 | Train Loss 17.3041 MAE 17.798 | Val Loss 22.0894 MAE 22.589 RMSE 25.840 | 10.8s
+[F4 D0.10] Epoch 048/150 | LR 7.983e-04 | Train Loss 16.5261 MAE 17.024 | Val Loss 22.2729 MAE 22.773 RMSE 26.480 | 10.6s
+[F4 D0.10] Epoch 049/150 | LR 7.895e-04 | Train Loss 17.1313 MAE 17.628 | Val Loss 21.5462 MAE 22.043 RMSE 25.789 | 11.8s
+[F4 D0.10] Epoch 050/150 | LR 7.806e-04 | Train Loss 16.1429 MAE 16.635 | Val Loss 19.6040 MAE 20.104 RMSE 23.883 | 10.4s
+[F4 D0.10] Epoch 051/150 | LR 7.716e-04 | Train Loss 15.8890 MAE 16.379 | Val Loss 18.8850 MAE 19.385 RMSE 23.065 | 10.8s
+[F4 D0.10] Epoch 052/150 | LR 7.624e-04 | Train Loss 15.5491 MAE 16.038 | Val Loss 18.0866 MAE 18.587 RMSE 22.384 | 11.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=18.587)
+[F4 D0.10] Epoch 053/150 | LR 7.531e-04 | Train Loss 15.3168 MAE 15.803 | Val Loss 17.5707 MAE 18.071 RMSE 21.800 | 12.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=18.071)
+[F4 D0.10] Epoch 054/150 | LR 7.437e-04 | Train Loss 14.9827 MAE 15.467 | Val Loss 17.1417 MAE 17.641 RMSE 21.301 | 11.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=17.641)
+[F4 D0.10] Epoch 055/150 | LR 7.342e-04 | Train Loss 14.8258 MAE 15.316 | Val Loss 16.8450 MAE 17.335 RMSE 20.933 | 9.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=17.335)
+[F4 D0.10] Epoch 056/150 | LR 7.246e-04 | Train Loss 14.3686 MAE 14.856 | Val Loss 16.5973 MAE 17.077 RMSE 20.630 | 8.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=17.077)
+[F4 D0.10] Epoch 057/150 | LR 7.148e-04 | Train Loss 14.0645 MAE 14.546 | Val Loss 16.4009 MAE 16.893 RMSE 20.400 | 8.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=16.893)
+[F4 D0.10] Epoch 058/150 | LR 7.050e-04 | Train Loss 14.9985 MAE 15.485 | Val Loss 16.1580 MAE 16.650 RMSE 20.224 | 7.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=16.650)
+[F4 D0.10] Epoch 059/150 | LR 6.951e-04 | Train Loss 20.2653 MAE 20.755 | Val Loss 15.8586 MAE 16.357 RMSE 19.934 | 7.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=16.357)
+[F4 D0.10] Epoch 060/150 | LR 6.851e-04 | Train Loss 23.3663 MAE 23.863 | Val Loss 20.3298 MAE 20.830 RMSE 24.929 | 7.4s
+[F4 D0.10] Epoch 061/150 | LR 6.750e-04 | Train Loss 14.1792 MAE 14.677 | Val Loss 20.3303 MAE 20.829 RMSE 25.069 | 7.3s
+[F4 D0.10] Epoch 062/150 | LR 6.648e-04 | Train Loss 13.9685 MAE 14.467 | Val Loss 18.5404 MAE 19.040 RMSE 22.913 | 7.5s
+[F4 D0.10] Epoch 063/150 | LR 6.545e-04 | Train Loss 13.7227 MAE 14.216 | Val Loss 17.1318 MAE 17.632 RMSE 21.286 | 8.0s
+[F4 D0.10] Epoch 064/150 | LR 6.442e-04 | Train Loss 13.8016 MAE 14.302 | Val Loss 16.3974 MAE 16.886 RMSE 20.523 | 7.4s
+[F4 D0.10] Epoch 065/150 | LR 6.338e-04 | Train Loss 13.5628 MAE 14.060 | Val Loss 16.8820 MAE 17.382 RMSE 20.870 | 7.1s
+[F4 D0.10] Epoch 066/150 | LR 6.233e-04 | Train Loss 13.1199 MAE 13.615 | Val Loss 16.6929 MAE 17.192 RMSE 20.496 | 7.2s
+[F4 D0.10] Epoch 067/150 | LR 6.128e-04 | Train Loss 12.9457 MAE 13.443 | Val Loss 16.5345 MAE 17.034 RMSE 19.892 | 7.1s
+[F4 D0.10] Epoch 068/150 | LR 6.022e-04 | Train Loss 12.9013 MAE 13.391 | Val Loss 16.3221 MAE 16.821 RMSE 20.062 | 7.0s
+[F4 D0.10] Epoch 069/150 | LR 5.916e-04 | Train Loss 14.6252 MAE 15.121 | Val Loss 16.2153 MAE 16.708 RMSE 19.891 | 7.1s
+[F4 D0.10] Epoch 070/150 | LR 5.809e-04 | Train Loss 12.6268 MAE 13.125 | Val Loss 15.5164 MAE 16.004 RMSE 19.253 | 7.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=16.004)
+[F4 D0.10] Epoch 071/150 | LR 5.702e-04 | Train Loss 12.8985 MAE 13.393 | Val Loss 15.5455 MAE 16.032 RMSE 19.298 | 7.0s
+[F4 D0.10] Epoch 072/150 | LR 5.594e-04 | Train Loss 12.7117 MAE 13.209 | Val Loss 15.6650 MAE 16.161 RMSE 19.304 | 7.4s
+[F4 D0.10] Epoch 073/150 | LR 5.487e-04 | Train Loss 12.3433 MAE 12.837 | Val Loss 16.4588 MAE 16.958 RMSE 20.377 | 7.3s
+[F4 D0.10] Epoch 074/150 | LR 5.379e-04 | Train Loss 12.7206 MAE 13.213 | Val Loss 15.7229 MAE 16.211 RMSE 19.211 | 7.0s
+[F4 D0.10] Epoch 075/150 | LR 5.271e-04 | Train Loss 12.5186 MAE 13.015 | Val Loss 17.1357 MAE 17.621 RMSE 20.376 | 7.2s
+[F4 D0.10] Epoch 076/150 | LR 5.162e-04 | Train Loss 12.0454 MAE 12.545 | Val Loss 16.9903 MAE 17.482 RMSE 20.658 | 7.2s
+[F4 D0.10] Epoch 077/150 | LR 5.054e-04 | Train Loss 11.9858 MAE 12.481 | Val Loss 16.2594 MAE 16.759 RMSE 19.762 | 7.3s
+[F4 D0.10] Epoch 078/150 | LR 4.946e-04 | Train Loss 12.2757 MAE 12.767 | Val Loss 15.0219 MAE 15.516 RMSE 18.319 | 7.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=15.516)
+[F4 D0.10] Epoch 079/150 | LR 4.838e-04 | Train Loss 12.1850 MAE 12.675 | Val Loss 14.8597 MAE 15.360 RMSE 18.274 | 7.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=15.360)
+[F4 D0.10] Epoch 080/150 | LR 4.729e-04 | Train Loss 11.9243 MAE 12.423 | Val Loss 14.7504 MAE 15.248 RMSE 18.305 | 7.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=15.248)
+[F4 D0.10] Epoch 081/150 | LR 4.621e-04 | Train Loss 11.8995 MAE 12.395 | Val Loss 14.9948 MAE 15.491 RMSE 18.447 | 7.2s
+[F4 D0.10] Epoch 082/150 | LR 4.513e-04 | Train Loss 11.3254 MAE 11.812 | Val Loss 14.8943 MAE 15.394 RMSE 18.162 | 7.3s
+[F4 D0.10] Epoch 083/150 | LR 4.406e-04 | Train Loss 11.6928 MAE 12.182 | Val Loss 14.6203 MAE 15.114 RMSE 17.842 | 7.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=15.114)
+[F4 D0.10] Epoch 084/150 | LR 4.298e-04 | Train Loss 11.7518 MAE 12.242 | Val Loss 15.0287 MAE 15.529 RMSE 17.963 | 7.2s
+[F4 D0.10] Epoch 085/150 | LR 4.191e-04 | Train Loss 11.5530 MAE 12.049 | Val Loss 14.5616 MAE 15.038 RMSE 17.748 | 7.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=15.038)
+[F4 D0.10] Epoch 086/150 | LR 4.084e-04 | Train Loss 11.1213 MAE 11.611 | Val Loss 14.6051 MAE 15.105 RMSE 17.733 | 7.2s
+[F4 D0.10] Epoch 087/150 | LR 3.978e-04 | Train Loss 10.8982 MAE 11.387 | Val Loss 14.4546 MAE 14.955 RMSE 17.617 | 7.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=14.955)
+[F4 D0.10] Epoch 088/150 | LR 3.872e-04 | Train Loss 10.6598 MAE 11.151 | Val Loss 14.1932 MAE 14.693 RMSE 17.421 | 7.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=14.693)
+[F4 D0.10] Epoch 089/150 | LR 3.767e-04 | Train Loss 10.5965 MAE 11.082 | Val Loss 13.9306 MAE 14.431 RMSE 17.130 | 8.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold4_drop0p1\best_mae.pt (MAE=14.431)
+[F4 D0.10] Epoch 090/150 | LR 3.662e-04 | Train Loss 11.2047 MAE 11.690 | Val Loss 14.0129 MAE 14.513 RMSE 17.156 | 7.9s
+[F4 D0.10] Epoch 091/150 | LR 3.558e-04 | Train Loss 10.8495 MAE 11.336 | Val Loss 14.1264 MAE 14.626 RMSE 17.242 | 7.3s
+[F4 D0.10] Epoch 092/150 | LR 3.455e-04 | Train Loss 10.2108 MAE 10.689 | Val Loss 14.1260 MAE 14.626 RMSE 17.496 | 7.5s
+[F4 D0.10] Epoch 093/150 | LR 3.352e-04 | Train Loss 10.4799 MAE 10.971 | Val Loss 14.0780 MAE 14.578 RMSE 17.619 | 7.2s
+[F4 D0.10] Epoch 094/150 | LR 3.250e-04 | Train Loss 10.2850 MAE 10.774 | Val Loss 13.9678 MAE 14.468 RMSE 17.115 | 7.1s
+[F4 D0.10] Epoch 095/150 | LR 3.149e-04 | Train Loss 10.8383 MAE 11.327 | Val Loss 14.0429 MAE 14.543 RMSE 17.067 | 7.1s
+[F4 D0.10] Epoch 096/150 | LR 3.049e-04 | Train Loss 10.3035 MAE 10.796 | Val Loss 14.5450 MAE 15.045 RMSE 17.671 | 7.4s
+[F4 D0.10] Epoch 097/150 | LR 2.950e-04 | Train Loss 10.3448 MAE 10.838 | Val Loss 14.3685 MAE 14.869 RMSE 17.823 | 7.4s
+[F4 D0.10] Epoch 098/150 | LR 2.852e-04 | Train Loss 10.0111 MAE 10.494 | Val Loss 17.2264 MAE 17.726 RMSE 20.514 | 7.2s
+[F4 D0.10] Epoch 099/150 | LR 2.754e-04 | Train Loss 9.9114 MAE 10.392 | Val Loss 15.3800 MAE 15.879 RMSE 18.744 | 7.0s
+[F4 D0.10] Epoch 100/150 | LR 2.658e-04 | Train Loss 10.4429 MAE 10.941 | Val Loss 14.5805 MAE 15.081 RMSE 17.526 | 7.4s
+[F4 D0.10] Epoch 101/150 | LR 2.563e-04 | Train Loss 9.7702 MAE 10.256 | Val Loss 14.4463 MAE 14.946 RMSE 17.669 | 6.9s
+[F4 D0.10] Epoch 102/150 | LR 2.469e-04 | Train Loss 9.7591 MAE 10.248 | Val Loss 14.2022 MAE 14.702 RMSE 17.264 | 6.4s
+[F4 D0.10] Epoch 103/150 | LR 2.376e-04 | Train Loss 10.3574 MAE 10.837 | Val Loss 13.9815 MAE 14.476 RMSE 17.436 | 6.2s
+[F4 D0.10] Epoch 104/150 | LR 2.284e-04 | Train Loss 9.6000 MAE 10.087 | Val Loss 14.0206 MAE 14.521 RMSE 17.458 | 6.1s
+  -> Early stopping (no improve 15 epochs).
+Best on Fold 4: MAE=14.431 with dropout=0.10
+
+===== Fold 5/5 =====
+
+-- Dropout=0.10 -> out: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1
+[F5 D0.10] Epoch 001/150 | LR 4.000e-04 | Train Loss 36.5098 MAE 37.010 | Val Loss 34.4119 MAE 34.912 RMSE 36.461 | 36.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=34.912)
+[F5 D0.10] Epoch 002/150 | LR 6.000e-04 | Train Loss 36.4420 MAE 36.942 | Val Loss 33.7391 MAE 34.239 RMSE 35.814 | 11.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=34.239)
+[F5 D0.10] Epoch 003/150 | LR 8.000e-04 | Train Loss 36.2672 MAE 36.767 | Val Loss 33.3849 MAE 33.885 RMSE 35.468 | 9.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=33.885)
+[F5 D0.10] Epoch 004/150 | LR 1.000e-03 | Train Loss 35.9730 MAE 36.473 | Val Loss 32.8815 MAE 33.381 RMSE 34.989 | 10.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=33.381)
+[F5 D0.10] Epoch 005/150 | LR 1.000e-03 | Train Loss 35.5574 MAE 36.057 | Val Loss 32.3214 MAE 32.821 RMSE 34.461 | 9.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=32.821)
+[F5 D0.10] Epoch 006/150 | LR 9.999e-04 | Train Loss 35.0429 MAE 35.543 | Val Loss 31.7889 MAE 32.289 RMSE 33.954 | 9.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=32.289)
+[F5 D0.10] Epoch 007/150 | LR 9.995e-04 | Train Loss 34.5169 MAE 35.017 | Val Loss 31.2697 MAE 31.770 RMSE 33.460 | 9.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=31.770)
+[F5 D0.10] Epoch 008/150 | LR 9.989e-04 | Train Loss 33.9586 MAE 34.459 | Val Loss 30.7035 MAE 31.203 RMSE 32.922 | 9.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=31.203)
+[F5 D0.10] Epoch 009/150 | LR 9.981e-04 | Train Loss 33.5557 MAE 34.056 | Val Loss 30.2788 MAE 30.779 RMSE 32.520 | 9.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=30.779)
+[F5 D0.10] Epoch 010/150 | LR 9.971e-04 | Train Loss 33.0471 MAE 33.547 | Val Loss 29.7488 MAE 30.249 RMSE 32.014 | 9.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=30.249)
+[F5 D0.10] Epoch 011/150 | LR 9.958e-04 | Train Loss 33.1119 MAE 33.612 | Val Loss 29.4677 MAE 29.968 RMSE 31.753 | 9.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=29.968)
+[F5 D0.10] Epoch 012/150 | LR 9.943e-04 | Train Loss 32.5415 MAE 33.042 | Val Loss 29.1560 MAE 29.656 RMSE 31.459 | 9.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=29.656)
+[F5 D0.10] Epoch 013/150 | LR 9.925e-04 | Train Loss 31.7831 MAE 32.283 | Val Loss 28.4402 MAE 28.940 RMSE 30.787 | 9.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=28.940)
+[F5 D0.10] Epoch 014/150 | LR 9.905e-04 | Train Loss 31.3347 MAE 31.835 | Val Loss 27.8174 MAE 28.317 RMSE 30.202 | 10.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=28.317)
+[F5 D0.10] Epoch 015/150 | LR 9.883e-04 | Train Loss 30.7983 MAE 31.298 | Val Loss 27.4550 MAE 27.955 RMSE 29.862 | 11.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=27.955)
+[F5 D0.10] Epoch 016/150 | LR 9.859e-04 | Train Loss 30.2907 MAE 30.791 | Val Loss 27.0516 MAE 27.552 RMSE 29.484 | 12.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=27.552)
+[F5 D0.10] Epoch 017/150 | LR 9.832e-04 | Train Loss 29.7495 MAE 30.250 | Val Loss 26.4562 MAE 26.956 RMSE 28.921 | 12.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=26.956)
+[F5 D0.10] Epoch 018/150 | LR 9.803e-04 | Train Loss 29.2350 MAE 29.735 | Val Loss 26.0834 MAE 26.581 RMSE 28.576 | 9.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=26.581)
+[F5 D0.10] Epoch 019/150 | LR 9.772e-04 | Train Loss 28.7378 MAE 29.233 | Val Loss 25.6191 MAE 26.100 RMSE 28.130 | 10.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=26.100)
+[F5 D0.10] Epoch 020/150 | LR 9.738e-04 | Train Loss 28.2289 MAE 28.722 | Val Loss 25.2085 MAE 25.706 RMSE 27.699 | 10.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=25.706)
+[F5 D0.10] Epoch 021/150 | LR 9.703e-04 | Train Loss 27.7612 MAE 28.256 | Val Loss 24.4963 MAE 24.996 RMSE 27.004 | 9.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=24.996)
+[F5 D0.10] Epoch 022/150 | LR 9.665e-04 | Train Loss 28.3015 MAE 28.797 | Val Loss 24.4113 MAE 24.911 RMSE 26.870 | 9.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=24.911)
+[F5 D0.10] Epoch 023/150 | LR 9.625e-04 | Train Loss 26.8480 MAE 27.348 | Val Loss 24.2554 MAE 24.755 RMSE 26.706 | 9.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=24.755)
+[F5 D0.10] Epoch 024/150 | LR 9.582e-04 | Train Loss 26.3980 MAE 26.898 | Val Loss 23.2825 MAE 23.783 RMSE 25.785 | 9.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=23.783)
+[F5 D0.10] Epoch 025/150 | LR 9.538e-04 | Train Loss 26.3071 MAE 26.807 | Val Loss 23.0835 MAE 23.583 RMSE 25.600 | 9.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=23.583)
+[F5 D0.10] Epoch 026/150 | LR 9.491e-04 | Train Loss 25.5447 MAE 26.045 | Val Loss 22.7749 MAE 23.275 RMSE 25.296 | 9.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=23.275)
+[F5 D0.10] Epoch 027/150 | LR 9.443e-04 | Train Loss 25.0815 MAE 25.581 | Val Loss 22.1112 MAE 22.611 RMSE 24.616 | 9.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=22.611)
+[F5 D0.10] Epoch 028/150 | LR 9.392e-04 | Train Loss 24.7096 MAE 25.206 | Val Loss 21.5834 MAE 22.083 RMSE 24.073 | 10.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=22.083)
+[F5 D0.10] Epoch 029/150 | LR 9.339e-04 | Train Loss 24.2256 MAE 24.721 | Val Loss 20.9323 MAE 21.432 RMSE 23.408 | 9.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=21.432)
+[F5 D0.10] Epoch 030/150 | LR 9.284e-04 | Train Loss 24.1570 MAE 24.646 | Val Loss 20.3736 MAE 20.874 RMSE 22.869 | 10.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=20.874)
+[F5 D0.10] Epoch 031/150 | LR 9.227e-04 | Train Loss 23.3435 MAE 23.836 | Val Loss 19.8115 MAE 20.312 RMSE 22.276 | 9.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=20.312)
+[F5 D0.10] Epoch 032/150 | LR 9.169e-04 | Train Loss 22.8905 MAE 23.383 | Val Loss 19.4421 MAE 19.942 RMSE 21.943 | 9.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=19.942)
+[F5 D0.10] Epoch 033/150 | LR 9.108e-04 | Train Loss 22.5299 MAE 23.024 | Val Loss 19.3660 MAE 19.866 RMSE 21.855 | 9.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=19.866)
+[F5 D0.10] Epoch 034/150 | LR 9.045e-04 | Train Loss 22.1411 MAE 22.639 | Val Loss 18.9400 MAE 19.440 RMSE 21.407 | 9.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=19.440)
+[F5 D0.10] Epoch 035/150 | LR 8.980e-04 | Train Loss 21.7269 MAE 22.226 | Val Loss 18.2887 MAE 18.789 RMSE 20.717 | 9.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=18.789)
+[F5 D0.10] Epoch 036/150 | LR 8.914e-04 | Train Loss 21.1879 MAE 21.687 | Val Loss 18.0998 MAE 18.600 RMSE 20.647 | 9.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=18.600)
+[F5 D0.10] Epoch 037/150 | LR 8.846e-04 | Train Loss 20.7837 MAE 21.283 | Val Loss 17.9448 MAE 18.445 RMSE 20.561 | 11.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=18.445)
+[F5 D0.10] Epoch 038/150 | LR 8.776e-04 | Train Loss 20.3559 MAE 20.844 | Val Loss 18.8220 MAE 19.322 RMSE 21.450 | 9.1s
+[F5 D0.10] Epoch 039/150 | LR 8.704e-04 | Train Loss 20.1773 MAE 20.667 | Val Loss 17.6551 MAE 18.155 RMSE 20.263 | 10.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=18.155)
+[F5 D0.10] Epoch 040/150 | LR 8.630e-04 | Train Loss 19.7251 MAE 20.220 | Val Loss 16.9853 MAE 17.485 RMSE 19.616 | 9.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=17.485)
+[F5 D0.10] Epoch 041/150 | LR 8.555e-04 | Train Loss 19.3791 MAE 19.875 | Val Loss 16.6402 MAE 17.140 RMSE 19.272 | 10.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=17.140)
+[F5 D0.10] Epoch 042/150 | LR 8.478e-04 | Train Loss 18.8108 MAE 19.298 | Val Loss 17.9600 MAE 18.460 RMSE 20.620 | 14.6s
+[F5 D0.10] Epoch 043/150 | LR 8.399e-04 | Train Loss 18.6313 MAE 19.128 | Val Loss 16.3362 MAE 16.836 RMSE 18.976 | 13.2s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=16.836)
+[F5 D0.10] Epoch 044/150 | LR 8.319e-04 | Train Loss 18.2621 MAE 18.756 | Val Loss 15.3477 MAE 15.848 RMSE 18.100 | 15.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=15.848)
+[F5 D0.10] Epoch 045/150 | LR 8.237e-04 | Train Loss 17.9525 MAE 18.433 | Val Loss 15.0085 MAE 15.509 RMSE 17.621 | 12.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=15.509)
+[F5 D0.10] Epoch 046/150 | LR 8.154e-04 | Train Loss 17.6092 MAE 18.106 | Val Loss 14.3633 MAE 14.863 RMSE 16.862 | 10.8s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=14.863)
+[F5 D0.10] Epoch 047/150 | LR 8.069e-04 | Train Loss 17.3054 MAE 17.801 | Val Loss 13.9265 MAE 14.405 RMSE 16.749 | 10.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=14.405)
+[F5 D0.10] Epoch 048/150 | LR 7.983e-04 | Train Loss 17.0064 MAE 17.499 | Val Loss 14.1819 MAE 14.682 RMSE 17.044 | 10.9s
+[F5 D0.10] Epoch 049/150 | LR 7.895e-04 | Train Loss 19.1002 MAE 19.592 | Val Loss 13.8021 MAE 14.302 RMSE 16.770 | 11.1s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=14.302)
+[F5 D0.10] Epoch 050/150 | LR 7.806e-04 | Train Loss 16.5718 MAE 17.058 | Val Loss 12.9396 MAE 13.440 RMSE 15.945 | 11.4s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=13.440)
+[F5 D0.10] Epoch 051/150 | LR 7.716e-04 | Train Loss 16.1636 MAE 16.644 | Val Loss 12.2200 MAE 12.719 RMSE 15.467 | 10.9s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=12.719)
+[F5 D0.10] Epoch 052/150 | LR 7.624e-04 | Train Loss 20.4780 MAE 20.972 | Val Loss 12.4610 MAE 12.938 RMSE 15.537 | 13.8s
+[F5 D0.10] Epoch 053/150 | LR 7.531e-04 | Train Loss 15.9411 MAE 16.433 | Val Loss 12.8934 MAE 13.392 RMSE 15.702 | 17.8s
+[F5 D0.10] Epoch 054/150 | LR 7.437e-04 | Train Loss 15.8821 MAE 16.363 | Val Loss 12.7076 MAE 13.199 RMSE 15.423 | 34.7s
+[F5 D0.10] Epoch 055/150 | LR 7.342e-04 | Train Loss 15.5805 MAE 16.061 | Val Loss 11.7970 MAE 12.281 RMSE 14.605 | 41.0s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=12.281)
+[F5 D0.10] Epoch 056/150 | LR 7.246e-04 | Train Loss 15.4466 MAE 15.934 | Val Loss 11.2251 MAE 11.723 RMSE 14.040 | 39.3s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=11.723)
+[F5 D0.10] Epoch 057/150 | LR 7.148e-04 | Train Loss 15.1675 MAE 15.652 | Val Loss 11.0581 MAE 11.553 RMSE 13.798 | 35.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=11.553)
+[F5 D0.10] Epoch 058/150 | LR 7.050e-04 | Train Loss 14.8103 MAE 15.302 | Val Loss 9.9136 MAE 10.414 RMSE 12.960 | 26.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=10.414)
+[F5 D0.10] Epoch 059/150 | LR 6.951e-04 | Train Loss 14.7018 MAE 15.188 | Val Loss 9.5983 MAE 10.075 RMSE 12.391 | 14.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=10.075)
+[F5 D0.10] Epoch 060/150 | LR 6.851e-04 | Train Loss 14.6782 MAE 15.171 | Val Loss 9.9026 MAE 10.380 RMSE 12.743 | 15.7s
+[F5 D0.10] Epoch 061/150 | LR 6.750e-04 | Train Loss 14.3306 MAE 14.819 | Val Loss 10.5411 MAE 11.041 RMSE 13.545 | 14.5s
+[F5 D0.10] Epoch 062/150 | LR 6.648e-04 | Train Loss 14.2919 MAE 14.788 | Val Loss 10.9639 MAE 11.464 RMSE 13.908 | 15.2s
+[F5 D0.10] Epoch 063/150 | LR 6.545e-04 | Train Loss 13.8712 MAE 14.358 | Val Loss 12.1736 MAE 12.674 RMSE 15.247 | 16.2s
+[F5 D0.10] Epoch 064/150 | LR 6.442e-04 | Train Loss 14.3782 MAE 14.868 | Val Loss 10.2548 MAE 10.755 RMSE 13.367 | 15.2s
+[F5 D0.10] Epoch 065/150 | LR 6.338e-04 | Train Loss 13.7497 MAE 14.249 | Val Loss 10.6922 MAE 11.182 RMSE 13.928 | 14.7s
+[F5 D0.10] Epoch 066/150 | LR 6.233e-04 | Train Loss 13.6554 MAE 14.152 | Val Loss 10.4989 MAE 10.999 RMSE 13.591 | 15.4s
+[F5 D0.10] Epoch 067/150 | LR 6.128e-04 | Train Loss 13.3860 MAE 13.883 | Val Loss 9.5285 MAE 10.009 RMSE 12.537 | 16.5s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=10.009)
+[F5 D0.10] Epoch 068/150 | LR 6.022e-04 | Train Loss 13.2914 MAE 13.770 | Val Loss 9.1719 MAE 9.672 RMSE 12.221 | 17.9s
+[F5 D0.10] Epoch 074/150 | LR 5.379e-04 | Train Loss 13.1541 MAE 13.641 | Val Loss 10.3494 MAE 10.849 RMSE 13.250 | 10.6s
+[F5 D0.10] Epoch 075/150 | LR 5.271e-04 | Train Loss 12.3923 MAE 12.884 | Val Loss 8.7241 MAE 9.209 RMSE 11.975 | 12.2s
+[F5 D0.10] Epoch 076/150 | LR 5.162e-04 | Train Loss 12.6382 MAE 13.138 | Val Loss 7.7275 MAE 8.200 RMSE 11.372 | 14.7s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=8.200)
+[F5 D0.10] Epoch 077/150 | LR 5.054e-04 | Train Loss 13.3532 MAE 13.847 | Val Loss 6.4211 MAE 6.912 RMSE 9.926 | 13.6s
+  -> Saved best to C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs512_crops_drop0p1\fold5_drop0p1\best_mae.pt (MAE=6.912)
+[F5 D0.10] Epoch 078/150 | LR 4.946e-04 | Train Loss 12.1279 MAE 12.613 | Val Loss 7.0951 MAE 7.595 RMSE 10.147 | 13.3s
+[F5 D0.10] Epoch 079/150 | LR 4.838e-04 | Train Loss 12.1335 MAE 12.611 | Val Loss 9.2000 MAE 9.683 RMSE 11.953 | 15.2s
+[F5 D0.10] Epoch 080/150 | LR 4.729e-04 | Train Loss 11.8963 MAE 12.395 | Val Loss 10.7864 MAE 11.286 RMSE 13.572 | 26.4s
+[F5 D0.10] Epoch 081/150 | LR 4.621e-04 | Train Loss 12.0005 MAE 12.494 | Val Loss 12.1631 MAE 12.652 RMSE 15.355 | 31.7s
+[F5 D0.10] Epoch 082/150 | LR 4.513e-04 | Train Loss 11.5287 MAE 12.021 | Val Loss 13.1894 MAE 13.689 RMSE 16.608 | 21.7s
+[F5 D0.10] Epoch 083/150 | LR 4.406e-04 | Train Loss 12.3780 MAE 12.871 | Val Loss 13.1704 MAE 13.670 RMSE 17.231 | 15.5s
+[F5 D0.10] Epoch 084/150 | LR 4.298e-04 | Train Loss 12.1791 MAE 12.677 | Val Loss 9.3085 MAE 9.808 RMSE 13.373 | 21.2s
+[F5 D0.10] Epoch 085/150 | LR 4.191e-04 | Train Loss 11.5701 MAE 12.057 | Val Loss 7.2965 MAE 7.769 RMSE 10.770 | 11.7s
+[F5 D0.10] Epoch 086/150 | LR 4.084e-04 | Train Loss 11.2367 MAE 11.721 | Val Loss 7.4096 MAE 7.890 RMSE 10.685 | 11.7s
+[F5 D0.10] Epoch 087/150 | LR 3.978e-04 | Train Loss 11.3608 MAE 11.850 | Val Loss 7.6343 MAE 8.106 RMSE 11.196 | 10.9s
+[F5 D0.10] Epoch 088/150 | LR 3.872e-04 | Train Loss 11.0747 MAE 11.556 | Val Loss 7.2172 MAE 7.690 RMSE 10.589 | 11.3s
+[F5 D0.10] Epoch 089/150 | LR 3.767e-04 | Train Loss 11.0921 MAE 11.582 | Val Loss 10.4616 MAE 10.951 RMSE 14.155 | 10.8s
+[F5 D0.10] Epoch 090/150 | LR 3.662e-04 | Train Loss 11.2250 MAE 11.718 | Val Loss 10.9332 MAE 11.433 RMSE 14.826 | 10.8s
+[F5 D0.10] Epoch 091/150 | LR 3.558e-04 | Train Loss 11.0068 MAE 11.492 | Val Loss 9.5283 MAE 10.028 RMSE 13.317 | 11.1s
+[F5 D0.10] Epoch 092/150 | LR 3.455e-04 | Train Loss 10.5812 MAE 11.068 | Val Loss 7.8939 MAE 8.389 RMSE 11.817 | 11.3s
+  -> Early stopping (no improve 15 epochs).
+Best on Fold 5: MAE=6.912 with dropout=0.10

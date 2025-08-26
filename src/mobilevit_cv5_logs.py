@@ -78,6 +78,23 @@ class AverageMeter:
     def update(self, v, n=1):
         self.val = v; self.sum += v*n; self.count += n
         self.avg = self.sum / self.count if self.count else 0
+        
+class ModelEMA:
+    """Exponential Moving Average des poids du modèle."""
+    def __init__(self, model, decay=0.999):
+        import copy
+        self.ema = copy.deepcopy(model).eval()
+        for p in self.ema.parameters():
+            p.requires_grad_(False)
+        self.decay = decay
+
+    @torch.no_grad()
+    def update(self, model):
+        d = self.decay
+        msd = model.state_dict()
+        for k, v in self.ema.state_dict().items():
+            if k in msd:
+                v.copy_(v * d + msd[k] * (1.0 - d))
 
 def set_seed(seed=42):
     import random
@@ -90,8 +107,6 @@ def get_transforms(img_size, strong=False):
     mean = (0.485, 0.456, 0.406); std = (0.229, 0.224, 0.225)
     if strong:
         train_tfms = T.Compose([
-            T.Resize(int(img_size * 1.15)),
-            T.RandomResizedCrop(img_size, scale=(0.7, 1.0)),
             T.RandomHorizontalFlip(p=0.5),
             T.RandomApply([T.ColorJitter(0.2,0.2,0.2,0.05)], p=0.5),
             T.RandomApply([T.GaussianBlur(kernel_size=3)], p=0.2),
@@ -99,11 +114,11 @@ def get_transforms(img_size, strong=False):
         ])
     else:
         train_tfms = T.Compose([
-            T.Resize((img_size, img_size)),
+            
             T.RandomHorizontalFlip(p=0.5),
             T.ToTensor(), T.Normalize(mean, std),
         ])
-    val_tfms = T.Compose([T.Resize((img_size, img_size)), T.ToTensor(), T.Normalize(mean, std)])
+    val_tfms = T.Compose([T.ToTensor(), T.Normalize(mean, std)])
     return train_tfms, val_tfms
 
 def build_model(model_name='mobilevit_xs', pretrained=True, dropout=0.0):
