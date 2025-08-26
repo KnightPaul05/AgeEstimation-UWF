@@ -34,4 +34,4 @@ python C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src\mobilevit_cv5.py `
 14     5     0.15      9.458785  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
 Saved: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid\cv5_summary.csv
 Per-fold MAE: [ 8.22259998  9.42759991 10.84132099 11.42266369  6.58442259] | mean=9.300 ± 1.757
-PS C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src> 
+PS C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src> spotify

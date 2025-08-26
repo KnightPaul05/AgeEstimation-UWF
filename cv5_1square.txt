@@ -111,3 +111,121 @@ python C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src\mobilevit_cv5.py `
 4     5      0.1      9.769320  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
 Saved: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square_best\cv5_summary.csv
 Per-fold MAE: [ 9.53336239 10.98604584  9.99077129 12.72189331  9.76932049] | mean=10.600 ± 1.171
+
+bigger model
+
+
+python C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src\mobilevit_cv5.py `
+  --csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images_1square" `
+  --out "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square_best_mvitS" `
+  --model mobilevit_s `
+  --dropout 0.1 `
+  --epochs 180 --batch-size 24 `
+  --lr 2e-3 --weight-decay 0.005 `
+  --scheduler cosine --warmup-epochs 5 `
+  --max-grad-norm 1.0 `
+  --amp `
+  --seed 42 `
+  --patience 25 `
+  --num-workers 4 `
+  --log-csv --log-tb --log-images-every 30
+
+
+===== CV summary =====
+   fold  dropout  best_val_mae                                               ckpt
+0     1      0.1     11.740140  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+1     2      0.1      9.444447  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+2     3      0.1     12.054539  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+3     4      0.1     10.747276  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+4     5      0.1      7.083774  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+Saved: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square_best_mvitS\cv5_summary.csv
+Per-fold MAE: [11.74013996  9.44444656 12.05453873 10.74727631  7.08377409] | mean=10.214 ± 1.811
+
+keep mobilevit xs 
+
+python C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src\mobilevit_cv5.py `
+  --csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images_1square" `
+  --out "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs_drop0p1_liteaug_optim" `
+  --model mobilevit_xs `
+  --dropout 0.1 `
+  --epochs 210 --batch-size 24 `
+  --lr 1.6e-3 --weight-decay 0.01 `
+  --scheduler cosine --warmup-epochs 8 `
+  --max-grad-norm 1.0 `
+  --amp `
+  --seed 42 `
+  --patience 30 `
+  --num-workers 4 `
+  --log-csv --log-tb --log-images-every 30
+
+
+===== CV summary =====
+   fold  dropout  best_val_mae                                               ckpt
+0     1      0.1      7.881668  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+1     2      0.1      8.907020  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+2     3      0.1     11.400754  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+3     4      0.1     11.972808  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+4     5      0.1      6.924252  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+Saved: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs_drop0p1_liteaug_optim\cv5_summary.csv
+Per-fold MAE: [ 7.88166809  8.90701962 11.40075397 11.97280788  6.92425156] | mean=9.417 ± 1.965
+
+python C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src\mobilevit_cv5.py `
+  --csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images_1square" `
+  --out "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs_drop0p1_liteaug_longcos" `
+  --model mobilevit_xs `
+  --dropout 0.1 `
+  --epochs 240 --batch-size 24 `
+  --lr 1.4e-3 --weight-decay 0.012 `
+  --scheduler cosine --warmup-epochs 10 `
+  --max-grad-norm 1.0 `
+  --amp `
+  --seed 42 `
+  --patience 40 `
+  --num-workers 4 `
+  --log-csv --log-tb --log-images-every 30
+
+  
+===== CV summary =====
+   fold  dropout  best_val_mae                                               ckpt
+0     1      0.1     11.342868  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+1     2      0.1      9.483082  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+2     3      0.1     11.904517  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+3     4      0.1     11.486007  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+4     5      0.1      6.981113  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+Saved: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs_drop0p1_liteaug_longcos\cv5_summary.csv
+Per-fold MAE: [11.34286785  9.48308182 11.90451717 11.48600674  6.98111343] | mean=10.240 ± 1.829
+
+
+Results
+
+We systematically evaluated several MobileViT configurations for age prediction 
+on cropped ultra-wide fundus images. Initial experiments with MobileViT-XS trained 
+for 120 epochs yielded a mean absolute error (MAE) of 12.0 years, indicating insufficient 
+training. Increasing to 150 epochs with strong data augmentation degraded performance 
+(MAE ≈ 13.3), while the tested EMA implementation produced unstable results (MAE > 30).
+
+A more balanced setting with MobileViT-XS at 180 epochs (dropout 0.1, weight decay 0.005)
+ achieved a stable MAE of 10.6 ± 1.2 across folds. Using the larger MobileViT-S model
+  reached a slightly lower mean MAE (10.2) but with higher variability (σ ≈ 1.8), 
+  limiting its robustness.
+
+Our best results were obtained with MobileViT-XS trained for 210 epochs, using moderate
+ augmentation, lower learning rate (1.6e-3), and increased weight decay (0.01). 
+ This configuration achieved a mean MAE of 9.4 ± 2.0, with some folds below 8 years. 
+ Extending training further to 240 epochs did not improve results and instead led to 
+ mild over-regularization.
+
+Discussion
+
+These experiments show that MobileViT-XS offers the best trade-off between accuracy, 
+stability, and computational efficiency. Longer training (≈210 epochs) with carefully 
+tuned regularization was the key factor in improving performance, while excessive 
+augmentation or EMA were detrimental. Although MobileViT-S demonstrated potential in 
+isolated folds, its higher variance makes it less reliable for cross-validated evaluation.
+
+Therefore, MobileViT-XS with dropout 0.1, moderate augmentation, and 210 epochs is 
+selected as the optimal configuration and will be used as the reference model in the 
+subsequent biomarker analysis (age gap evaluation).
