@@ -1,0 +1,15 @@
+python C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src\mobilevit_cv5.py `
+  --csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images_1square" `
+  --out "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_dropout_grid" `
+  --model mobilevit_xs `
+  --epochs 180 --batch-size 24 `
+  --lr 2e-3 --weight-decay 0.005 `
+  --scheduler cosine --warmup-epochs 5 `
+  --dropout-grid "0.05,0.10,0.15" `
+  --max-grad-norm 1.0 `
+  --amp `
+  --seed 42 `
+  --patience 25 `
+  --num-workers 4 `
+  --log-csv --log-tb
