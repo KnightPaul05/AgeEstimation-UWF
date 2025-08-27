@@ -6,7 +6,7 @@
 - AMP (mixed precision) on CUDA
 - Dropout: fixed or grid (e.g., 0.1,0.2,0.3)
 - Windows-safe (no local classes inside functions)
-Author: you (+ ChatGPT as thesis supervisor)
+
 Attribution: MobileViT models & weights via TIMM (pytorch-image-models)
 """
 

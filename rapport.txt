@@ -1,0 +1,20 @@
+Motivation clinique (1 slide) — UWF et signatures de l’âge; age gap. 
+BMJ Best Practice
+
+Données & pipeline (2–3 slides) — annotation disque, YOLO crop, normalisation. 
+Ultralytics Docs
+
+Modèle (1–2 slides) — MobileViT (pourquoi), tête régression, entraînement. 
+arXiv
+
+Validation (1 slide) — 5-fold, sélection du meilleur checkpoint.
+
+Résultats clés (3–4 slides) — MAE global; biais par âge (barres + IC); ablations (crop).
+
+Application biomarqueur (1–2 slides) — distribution du retinal age gap (demo). 
+BMJ Best Practice
+
+Limites & perspectives (1–2 slides) — SSL spécifique fond d’œil, validation externe multi-centre. 
+arXiv
+
+Conclusion & questions (1 slide).

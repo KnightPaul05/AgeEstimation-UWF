@@ -22,7 +22,7 @@ Output
 CSV with columns: Filename, Problem (1=problem, 0=ok), Reason
 Copies of problem images are saved to: out_dir
 
-Author: ChatGPT (custom-built for Paul's UWF project)
+
 Source: Original code written for this project (no external code pasted).
 """
 
