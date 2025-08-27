@@ -1,0 +1,8 @@
+python eval_bias_by_age_bins.py `
+  --ckpt "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs_drop0p1_liteaug_optim\fold5_drop0p1\best_mae.pt" `
+  --model mobilevit_xs `
+  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images_1square" `
+  --metadata "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --out-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\eval_bias_bins_auto" `
+  --tta
+

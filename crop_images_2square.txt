@@ -1,0 +1,26 @@
+
+python C:\Users\paulg\Desktop\ophta\Ophthalmology_project\src\mobilevit_cv5.py `
+  --csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images_2square" `
+  --out "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs_" `
+  --model mobilevit_xs `
+  --dropout 0.1 `
+  --epochs 210 --batch-size 24 `
+  --lr 1.6e-3 --weight-decay 0.01 `
+  --scheduler cosine --warmup-epochs 8 `
+  --max-grad-norm 1.0 `
+  --amp `
+  --seed 42 `
+  --patience 30 `
+  --num-workers 4 `
+  --log-csv --log-tb --log-images-every 30
+
+===== CV summary =====
+   fold  dropout  best_val_mae                                               ckpt
+0     1      0.1     10.502335  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+1     2      0.1      9.440518  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+2     3      0.1     11.061762  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+3     4      0.1     12.628884  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+4     5      0.1      7.277479  C:\Users\paulg\Desktop\ophta\Ophthalmology_pro...
+Saved: C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_xs_\cv5_summary.csv
+Per-fold MAE: [10.50233459  9.44051838 11.06176186 12.62888432  7.27747869] | mean=10.182 ± 1.780

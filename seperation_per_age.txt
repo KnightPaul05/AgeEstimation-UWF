@@ -1,0 +1,6 @@
+If changes in the directory 
+
+python bin_images_by_age.py `
+  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images_1square" `
+  --excel-path "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.xlsx" `
+  --out-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\by_age_bins"
