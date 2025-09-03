@@ -1,17 +1,18 @@
 python infer_age.py `
-  --ckpt "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square\fold1_drop0p1\best-ema.pt" `
+  --ckpt "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\cv5_xs_4square\fold5_drop0p1\best_mae.pt" `
   --model mobilevit_xs `
-  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images_1square" `
-  --img-size 256 `
-  --out-csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\predictions_fold1.csv"
+  --img-dir "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\crop_images_AMD" `
+  --img-size 656 `
+  --out-csv "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\predictions_fold5.csv"
 
 
 if CSV of info :
+>> python inferance.py `
+>>   --ckpt "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\cv5_xs_4square\fold5_drop0p1\best_mae.pt" `
+>>   --model mobilevit_xs `
+>>   --img-dir "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\crop_images_AMD" `
+>>   --img-size 656 `
+>>   --out-csv "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\predictions_fold5_AMD.csv" `
+>>   --gt-csv "C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\data\metadata_AMD.csv"
 
-python infer_age.py `
-  --ckpt "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\cv5_1square\fold1_drop0p1\best-ema.pt" `
-  --model mobilevit_xs `
-  --img-dir "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\crop_images_1square" `
-  --img-size 256 `
-  --out-csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\runs\predictions_fold1.csv" `
-  --gt-csv "C:\Users\paulg\Desktop\ophta\Ophthalmology_project\data\metadata_healthy_only.csv"
+
