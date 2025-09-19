@@ -1,0 +1,34 @@
+Healthy baseline :
+[info] GT columns detected: ['', 'filename', 'age']
+[info] PRED columns detected: ['filename', 'pred_age']
+MAE on files with ground truth (n=100): 10.061 years
+
+AMD :
+[info] GT columns detected: ['filename', 'age']
+[info] PRED columns detected: ['filename', 'pred_age']
+MAE on files with ground truth (n=100): 36.756 years
+
+DR :
+[info] GT columns detected: ['filename', 'age']
+[info] PRED columns detected: ['filename', 'pred_age']
+MAE on files with ground truth (n=100): 24.136 years
+
+PM :
+[info] GT columns detected: ['filename', 'age']
+[info] PRED columns detected: ['filename', 'pred_age']
+MAE on files with ground truth (n=100): 21.826 years
+
+RD :
+[info] GT columns detected: ['filename', 'age']
+[info] PRED columns detected: ['filename', 'pred_age']
+MAE on files with ground truth (n=100): 17.843 years
+
+RVO :
+[info] GT columns detected: ['filename', 'age']
+[info] PRED columns detected: ['filename', 'pred_age']
+MAE on files with ground truth (n=100): 29.440 years
+
+Uveitis :
+[info] GT columns detected: ['filename', 'age']
+[info] PRED columns detected: ['filename', 'pred_age']
+MAE on files with ground truth (n=100): 14.846 years
