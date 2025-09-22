@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+#Age distributions
 DR=[55,55,46,46,74,74,41,41,67,67,80,80,55,55,59,59,71,71,66,66,56,56,34,34,75,75,62,62,60,61,61,61,61,68,68,63,58,58,55,55,38,38,45,45,59,59,39,39,64,64,49,69,69,66,66,63,63,60,50,50,57,57,61,61,47,47,45,45,42,42,50,50,42,42,54,52,52,60,60,75,75,76,76,38,38,78,78,56,56,68,68,69,69,45,45,60,60,53,53,34]
 val_DR = 24.136
 AMD = [49,49,82,82,68,68,68,68,68,65,65,76,76,67,67,86,74,74,78,62,62,56,56,66,66,72,72,86,87,87,60,60,71,71,71,71,73,75,75,66,66,66,66,71,71,82,82,69,69,80,80,82,81,81,81,77,77,77,72,72,78,78,73,73,78,60,60,60,60,66,66,87,87,54,54,69,58,92,78,58,78,55,55,67,67,77,77,63,63,75,75,66,66,78,78,73,73,62,75,75]
@@ -14,9 +14,10 @@ RD=[76,35,47,54,49,66,82,50,60,69,30,41,27,39,72,47,34,34,70,30,54,64,45,55,44,7
 val_RD =17.843
 Healthy=[63,43,33,22,41,59,42,30,22,19,39,33,17,39,41,32,53,38,31,37,23,30,31,32,24,14,33,52,48,40,52,57,31,31,13,8,23,35,33,26,23,54,45,59,30,29,43,24,27,47,52,60,33,62,26,13,19,35,44,44,27,59,36,8,67,60,42,46,44,9,35,36,23,40,28,42,45,32,58,19,65,21,36,38,50,39,34,29,17,67,63,22,39,36,8,35,42,17,24,63]
 val_Healthy = 10.061
+
 bins = list(range(0, 101, 10))
 
-
+#Display age distribution
 def figure_age_distribution(plot):
     
     plt.hist(plot, bins=bins, alpha=0.5, label='Diabetic Retinopathy', color='blue', edgecolor='black')
@@ -37,6 +38,7 @@ def figure_age_distribution(plot):
 #figure_age_distribution(RD)
 #figure_age_distribution(Healthy)
 
+#Jensen-Shannon divergence
 from scipy.spatial.distance import jensenshannon
 import numpy as np
 def jensen_shannon_divergence(diseases,val_diseases):
@@ -60,6 +62,8 @@ def jensen_shannon_divergence(diseases,val_diseases):
 #jensen_shannon_divergence(Uveitis,val_Uveitis)
 #jensen_shannon_divergence(RD,val_RD)
 #jensen_shannon_divergence(Healthy,val_Healthy)
+
+#MAE vs JSD
 def figure_age_mae_jsd():
     diseases_list = [Healthy,Uveitis,RD,PM,DR,RVO,AMD]
     diseases_names = ["Healthy", "Uveitis", "RD", "PM", "DR", "RVO", "AMD"]
@@ -103,26 +107,133 @@ def figure_age_mae_jsd():
     plt.show()
 
 #figure_age_mae_jsd()
-value_u, value_s = 30, 40
-def take_index(lst):
-    index = []
-    for i in range(len(lst)):
-        if value_s >= lst[i] >= value_u:
-            index.append(i)
-    return index
+def mae_interval(value_u, value_s):
+    # ---- Indices de la tranche d'âge ----
+    def take_index(lst):
+        index = []
+        for i in range(len(lst)):
+            if value_s >= lst[i] >= value_u:
+                index.append(i)
+        return index
 
-dict_diseases_index = {
-    "DR": take_index(DR),
-    "AMD": take_index(AMD),
-    "RVO": take_index(RVO),
-    "PM": take_index(PM),
-    "Uveitis": take_index(Uveitis),
-    "RD": take_index(RD),
-    "Healthy": take_index(Healthy)
-}     
+    dict_diseases_index = {
+        "DR": take_index(DR),
+        "AMD": take_index(AMD),
+        "RVO": take_index(RVO),
+        "PM": take_index(PM),
+        "Uveitis": take_index(Uveitis),
+        "RD": take_index(RD),
+        "Healthy": take_index(Healthy)
+    }
+
+    # ---- Sous-listes des valeurs vraies ----
+    dict_diseases_values = {
+        disease: [lst[i] for i in indices]
+        for disease, indices, lst in [
+            ("DR", dict_diseases_index["DR"], DR),
+            ("AMD", dict_diseases_index["AMD"], AMD),
+            ("RVO", dict_diseases_index["RVO"], RVO),
+            ("PM", dict_diseases_index["PM"], PM),
+            ("Uveitis", dict_diseases_index["Uveitis"], Uveitis),
+            ("RD", dict_diseases_index["RD"], RD),
+            ("Healthy", dict_diseases_index["Healthy"], Healthy),
+        ]
+    }
+
+    # ---- Lectures CSV (prédictions) ----
+    import pandas as pd
+
+    df = pd.read_csv(r"C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\predictions_Healthy.csv")
+    pred_Healthy = df["pred_age"].tolist()
+
+    df = pd.read_csv(r"C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\predictions_Uveitis.csv")
+    pred_Uveitis = df["pred_age"].tolist()
+
+    df = pd.read_csv(r"C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\predictions_RD.csv")
+    pred_RD = df["pred_age"].tolist()
+
+    df = pd.read_csv(r"C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\predictions_PM.csv")
+    pred_PM = df["pred_age"].tolist()
+
+    df = pd.read_csv(r"C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\predictions_DR.csv")
+    pred_DR = df["pred_age"].tolist()
+
+    df = pd.read_csv(r"C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\predictions_RVO.csv")
+    pred_RVO = df["pred_age"].tolist()
+
+    df = pd.read_csv(r"C:\Users\paulg\Desktop\DeepLearning\Ophthalmology_project\runs\predictions_AMD.csv")
+    pred_AMD = df["pred_age"].tolist()
+
+    # ---- Sous-listes des valeurs prédites (alignées sur indices) ----
+    dict_diseases_values_predicted = {
+        disease: [lst[i] for i in indices]
+        for disease, indices, lst in [
+            ("DR", dict_diseases_index["DR"], pred_DR),
+            ("AMD", dict_diseases_index["AMD"], pred_AMD),
+            ("RVO", dict_diseases_index["RVO"], pred_RVO),
+            ("PM", dict_diseases_index["PM"], pred_PM),
+            ("Uveitis", dict_diseases_index["Uveitis"], pred_Uveitis),
+            ("RD", dict_diseases_index["RD"], pred_RD),
+            ("Healthy", dict_diseases_index["Healthy"], pred_Healthy),
+        ]
+    }
+
+    # ---- MAE par disease (arrondi 3 décimales, float natif) ----
+    dict_diseases_mae = {}
+
+    for disease in dict_diseases_values:
+        true_vals = dict_diseases_values[disease]
+        pred_vals = dict_diseases_values_predicted[disease]
+
+        if len(true_vals) > 0:
+            mae = sum(abs(t - p) for t, p in zip(true_vals, pred_vals)) / len(true_vals)
+            mae = round(float(mae), 3)
+        else:
+            mae = None
+
+        dict_diseases_mae[disease] = mae
+
+    return dict_diseases_mae
 
 
-#print(dict_diseases_index)
+#res_30_40 = mae_interval(30, 40)
+#print(res_30_40)
+#res_50_60 = mae_interval(50, 60)
+#print(res_50_60)
+#res_70_80 = mae_interval(70, 80)
+#print(res_70_80)
 
+import math
 
-    
+def plot_mae_by_age_bins():
+    # --- Age bins: 0-10, 10-20, ..., 90-100 ---
+    age_bins = [(i, i+10) for i in range(0, 100, 10)]  
+
+    # --- Collect MAE for each bin using your existing function ---
+    results_per_bin = [mae_interval(u, s) for (u, s) in age_bins]
+
+    # --- X-axis: midpoint of each age bin ---
+    x_vals = [(u + s) / 2 for (u, s) in age_bins]  
+
+    # --- Diseases in desired order ---
+    diseases = ["Healthy", "Uveitis", "RD", "PM", "DR", "RVO", "AMD"]
+
+    # --- Plot one curve per disease ---
+    plt.figure(figsize=(9, 5))
+    for disease in diseases:
+        y_vals = []
+        for res in results_per_bin:
+            mae = res.get(disease, None)
+            y_vals.append(mae if mae is not None else float('nan'))
+        plt.plot(x_vals, y_vals, marker='o', linewidth=2, label=disease)
+
+    plt.title("MAE across age bins (10 years) — one curve per disease")
+    plt.xlabel("Age (bin center)")
+    plt.ylabel("MAE (years)")
+    plt.xticks(x_vals, [f"{u}-{s}" for (u, s) in age_bins], rotation=45)
+    plt.grid(True, linestyle="--", alpha=0.3)
+    plt.legend(title="Disease")
+    plt.tight_layout()
+    plt.show()
+
+#plot_mae_by_age_bins()
